@@ -1,6 +1,7 @@
-Примечание:\ 
-Данная статья это перевод оригинальной статьи  "[The five AI value models driving business reinvention](https://openai.com/index/the-five-ai-value-models-driving-business-reinvention/)" \
-размещённой на сайте Open AI от 5 марта 2026г.
+Примечание:
+
+_Данная статья это перевод оригинальной статьи_  "[The five AI value models driving business reinvention](https://openai.com/index/the-five-ai-value-models-driving-business-reinvention/)" \
+_размещённой на сайте Open AI от 5 марта 2026г._
 
 ## **Введение**
 
