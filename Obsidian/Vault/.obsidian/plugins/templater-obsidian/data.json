@@ -1,0 +1,43 @@
+{
+  "command_timeout": 3600,
+  "templates_folder": "10_templaters",
+  "templates_pairs": [
+    [
+      "run_move_tasks",
+      "cd D:/Obsidian/Tasks_Center && python 3 10_Scripts/move_pending_tasks.py"
+    ],
+    [
+      "push_to_drive",
+      "start \"\" \"D:\\Obsidian\\push.bat\"\n"
+    ]
+  ],
+  "trigger_on_file_creation": false,
+  "auto_jump_to_cursor": false,
+  "enable_system_commands": true,
+  "shell_path": "",
+  "user_scripts_folder": "10_JS_Scripts",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "",
+      "template": ""
+    }
+  ],
+  "enable_file_templates": false,
+  "file_templates": [
+    {
+      "regex": ".*",
+      "template": ""
+    }
+  ],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [
+    "",
+    ""
+  ],
+  "startup_templates": [
+    ""
+  ],
+  "intellisense_render": 1
+}

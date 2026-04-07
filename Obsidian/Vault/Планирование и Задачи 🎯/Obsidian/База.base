@@ -1,0 +1,13 @@
+views:
+  - type: table
+    name: Таблица
+    order:
+      - file.name
+      - file.tags
+      - file.ctime
+    sort:
+      - property: file.ctime
+        direction: ASC
+    columnSize:
+      file.name: 475
+      file.tags: 315

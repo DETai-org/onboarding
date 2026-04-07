@@ -1,0 +1,319 @@
+{
+  "main": {
+    "id": "057074b1814a2996",
+    "type": "split",
+    "children": [
+      {
+        "id": "2bcaa0803951556b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "97d434eee1d90f32",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "Планирование и Задачи 🎯/Obsidian/02_Канбан-доски/01_Главная 🎯.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "list",
+                  "list-collapse": [
+                    false,
+                    false,
+                    null,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    true,
+                    true,
+                    true,
+                    true
+                  ]
+                }
+              },
+              "pinned": true,
+              "icon": "lucide-ghost",
+              "title": "kanban"
+            }
+          },
+          {
+            "id": "21d7e87401cb4c95",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Ecosystem/Governance/BHAG.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "BHAG"
+            }
+          },
+          {
+            "id": "02814e4ddb3a5a7b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Ecosystem/Management_layer/Docs-Ecosystem/document_metadata_policy.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "document_metadata_policy"
+            }
+          },
+          {
+            "id": "fbb5e699df103506",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Ecosystem/Tools/Obsidian/index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "735db97cbf480ef4",
+    "type": "split",
+    "children": [
+      {
+        "id": "a365da02e57a7f69",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b4eb71741f3ca621",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Файловый менеджер"
+            }
+          },
+          {
+            "id": "f77290ced132d6ae",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "Документационная архитектура экосистемы",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Поиск"
+            }
+          },
+          {
+            "id": "e8005b0a947ff5d8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Закладки"
+            }
+          },
+          {
+            "id": "464e646b54acc3d2",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "PERSONAL/🛠 Подключение к серверам.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "🛠 Подключение к серверам"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 361.5
+  },
+  "right": {
+    "id": "57caac9e7760719e",
+    "type": "split",
+    "children": [
+      {
+        "id": "cdeeffea83788a61",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4723f833d27323ce",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Планирование и Задачи 🎯/Obsidian/03_📂 Операционные материалы/Яркие блоки.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "Яркие блоки"
+            }
+          },
+          {
+            "id": "614e949287992cac",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Ecosystem/DETai/04_U.L.I. — Улей 🐝/2. 🕸️ Логика и инфраструктура/🧭 Методология проектного цикла DETai.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Обратные ссылки для 🧭 Методология проектного цикла DETai"
+            }
+          },
+          {
+            "id": "6e62c39c34589036",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "01_Планирование и Задачи 🎯/Планирование🎯/🔖 Логи за день/11_Ноябрь/log_2025-11-10.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Исходящие ссылки из log_2025-11-10"
+            }
+          },
+          {
+            "id": "6441d982939b73c4",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": true,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Теги"
+            }
+          },
+          {
+            "id": "e61782114bcf14f2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "04_⭐🌓DET/Cтруктуру/Схема.excalidraw.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Схема.excalidraw"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 251.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Меню быстрого перехода": false,
+      "graph:Граф": false,
+      "canvas:Создать новый холст": false,
+      "daily-notes:Сегодняшняя заметка": false,
+      "templates:Вставить шаблон": false,
+      "command-palette:Открыть палитру команд": false,
+      "bases:Создать новую базу": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-kanban:Создать новую доску": false,
+      "obsidian-excalidraw-plugin:Создать новый чертеж": false,
+      "custom-sort:Toggle custom sorting": false
+    }
+  },
+  "active": "464e646b54acc3d2",
+  "lastOpenFiles": [
+    "Ecosystem/Tools/Obsidian/index.md",
+    "Ecosystem/Tools/FileZilla/index.md",
+    "Планирование и Задачи 🎯/Obsidian/04_🕹️ Автоматизация Obsidian/Плагины.md",
+    "Планирование и Задачи 🎯/Obsidian/04_🕹️ Автоматизация Obsidian/Obsidian ↔ Google Drive.md",
+    "Ecosystem/Tools/Obsidian",
+    "Ecosystem/Governance/Constitution.md",
+    "Планирование и Задачи 🎯/Obsidian/База.base",
+    "Планирование и Задачи 🎯/Obsidian/📘Манифест.md",
+    "PERSONAL/Passwords.md",
+    "PERSONAL/🛠 Подключение к серверам.md",
+    "Onboarding Framework/🌐 Полная архитектура Onboarding.md",
+    "Onboarding Framework/Про HR внутри DET.md",
+    "Onboarding Framework/onboarding-put-k-integratsii-v-ekosistemu.md",
+    "Ecosystem/Tools/🎯ClickUp/index.md",
+    "Планирование и Задачи 🎯/Obsidian/03_📂 Операционные материалы/Яркие блоки.md",
+    "Ecosystem/Infrastructure/🌍 Сервера/index.md",
+    "Ecosystem/Management_layer/2_Architecture_and_Logic/Versioning-process.md",
+    "Ecosystem/Management_layer/ecosystem-resource.md",
+    "Ecosystem/Management_layer/Docs-Ecosystem/document_metadata_policy.md",
+    "Ecosystem/Management_layer/index.md",
+    "02_PROFESSIONAL/Без названия.md",
+    "Ecosystem/Governance/BHAG.md",
+    "02_PROFESSIONAL/Стиль Павлова.md",
+    "02_PROFESSIONAL/🧱 Структура.md",
+    "Ecosystem/Tools/🤖 GPT/Кастомные GPT (Кураторы)/01_GPT_META/01_rules.md",
+    "Ecosystem/Tools/🤖 GPT/index.md",
+    "Ecosystem/index.md",
+    "Ecosystem/glossary.md",
+    "Ecosystem/Tools/🤖 GPT/Кастомные GPT (Кураторы)/01_GPT_META",
+    "Ecosystem/Tools/🤖 GPT/Кастомные GPT (Кураторы)",
+    "Ecosystem/Tools/🧭Codex",
+    "Ecosystem/Tools/🤖 Telegram_Bots",
+    "Ecosystem/Tools/🤖 GPT",
+    "Ecosystem/Tools/🛠GitHub",
+    "Ecosystem/Tools/📦 Airtable",
+    "Ecosystem/Tools/🎯ClickUp",
+    "Excalidraw/Pasted image 20250929145445.png",
+    "ChatGPT Image 2 нояб. 2025 г., 13_55_31.png",
+    "tools_infrastructure_ecosystem.svg",
+    "projects_echelons_resources.svg",
+    "detai_architecture_echelons.svg",
+    "det_ecosystem_architecture.svg",
+    "det_cluster_architecture.svg",
+    "Pasted image 20260302161258.png",
+    "Pasted image 20260217191720.png",
+    "Pasted image 20251221161408.png"
+  ]
+}

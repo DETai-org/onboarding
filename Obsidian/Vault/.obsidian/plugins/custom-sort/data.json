@@ -1,0 +1,13 @@
+{
+  "additionalSortspecFile": "11_core_scripts/sortspec",
+  "indexNoteNameForFolderNotes": "",
+  "suspended": false,
+  "statusBarEntryEnabled": true,
+  "notificationsEnabled": true,
+  "mobileNotificationsEnabled": false,
+  "customSortContextSubmenu": true,
+  "automaticBookmarksIntegration": false,
+  "bookmarksContextMenus": true,
+  "bookmarksGroupToConsumeAsOrderingReference": "sortspec",
+  "delayForInitialApplication": 1000
+}
