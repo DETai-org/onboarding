@@ -1,0 +1,4 @@
+interface:
+  display_name: "DET Ecosystem Doc Architect"
+  short_description: "Create DET-aligned documentation"
+  default_prompt: "Use $det-ecosystem-doc-architect to decide which DET Ecosystem documents are needed and draft or place them according to standards."
