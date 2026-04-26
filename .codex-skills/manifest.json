@@ -1,9 +1,9 @@
 {
   "skills": {
     "det-ecosystem-doc-architect": {
-      "version": "0.1.0",
+      "version": "0.1.1",
       "path": "skills/det-ecosystem-doc-architect",
-      "updated_at": "2026-04-26",
+      "updated_at": "2026-04-27",
       "changelog": "skills/det-ecosystem-doc-architect/CHANGELOG.md",
       "description": "Skill для архитектуры документации экосистемы DET."
     }
