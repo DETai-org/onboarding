@@ -1,0 +1,4 @@
+interface:
+  display_name: "Knowledge Substrate Navigator"
+  short_description: "Find and read canonical Knowledge docs"
+  default_prompt: "Use $knowledge-substrate-navigator to map this Knowledge Substrate URL to its local Markdown source and read it as UTF-8."

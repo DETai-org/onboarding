@@ -1,11 +1,17 @@
 {
   "skills": {
     "det-ecosystem-doc-architect": {
-      "version": "0.1.1",
+      "version": "0.2.0",
       "path": "skills/det-ecosystem-doc-architect",
-      "updated_at": "2026-04-27",
+      "updated_at": "2026-04-29",
       "changelog": "skills/det-ecosystem-doc-architect/CHANGELOG.md",
-      "description": "Skill для архитектуры документации экосистемы DET."
+      "description": "Post-implementation and post-release documentation architecture for DET Ecosystem artifacts."
+    },
+    "knowledge-substrate-navigator": {
+      "version": "0.1.1",
+      "path": "skills/knowledge-substrate-navigator",
+      "updated_at": "2026-04-29",
+      "description": "Read-only navigator for mapping Knowledge Substrate public URLs to local UTF-8 Markdown sources."
     }
   }
 }
