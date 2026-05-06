@@ -1,0 +1,4 @@
+interface:
+  display_name: "Windows UTF-8 Guard"
+  short_description: "Fix UTF-8 issues in Windows and Git"
+  default_prompt: "Use $windows-utf8-guard to diagnose and fix mojibake/encoding issues on Windows across PowerShell, terminal output, and Git."
