@@ -1,0 +1,4 @@
+interface:
+  display_name: "Windows Mojibake First Aid"
+  short_description: "First response for garbled Cyrillic on Windows"
+  default_prompt: "Use $windows-mojibake-first-aid when Windows terminal or Git output shows mojibake like Ð... or Р.... Apply a session-level UTF-8 reset, rerun the failing command, and report whether the issue persists after the first-response steps."
