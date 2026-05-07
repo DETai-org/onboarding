@@ -13,11 +13,11 @@
       "updated_at": "2026-04-29",
       "description": "Read-only navigator for mapping Knowledge Substrate public URLs to local UTF-8 Markdown sources."
     },
-    "windows-utf8-guard": {
-      "version": "0.1.0",
-      "path": "skills/windows-utf8-guard",
+    "windows-mojibake-first-aid": {
+      "version": "0.2.0",
+      "path": "skills/windows-mojibake-first-aid",
       "updated_at": "2026-05-07",
-      "description": "Diagnose and fix Windows/PowerShell/Git mojibake and UTF-8 configuration issues."
+      "description": "First-response runbook for Windows mojibake in Codex terminal and Git output."
     }
   }
 }
