@@ -13,7 +13,7 @@
   skills/
     det-ecosystem-doc-architect/
     knowledge-substrate-navigator/
-    windows-utf8-guard/
+    windows-mojibake-first-aid/
 ```
 
 - `manifest.json` — индекс shared skills: версии, пути, даты обновления и краткие описания.
@@ -54,23 +54,22 @@ knowledge_core/source_of_truth/docs
 
 Этот skill не должен использоваться для создания onboarding tutorial issues, выбора идеи, планирования Epic Issue, создания Work Package, написания кода или выполнения release/versioning-процесса, если пользователь явно не просит именно документационную архитектуру.
 
-### `windows-utf8-guard`
+### `windows-mojibake-first-aid`
 
-Версия: `0.1.0`
+Версия: `0.2.0`
 
-Назначение: диагностика и устранение кракозябр/ошибок кодировки в Windows-окружении при работе с PowerShell, Git и Codex.
+Назначение: короткий first-response runbook на случай кракозябр в Windows-окружении при работе с PowerShell, Git и Codex.
 
 Используйте этот skill, когда:
 
-- в терминале ломается кириллица (`Ð...`, `Р...`, нечитаемый текст);
-- нужно быстро проверить UTF-8 baseline (`pwsh`, `chcp`, `[Console]::OutputEncoding`);
-- требуется выровнять Git global encoding (`i18n.*`, `core.quotepath`, `gui.encoding`);
-- нужно дать пошаговый протокол стабилизации кодировок на одной машине.
+- в терминале внезапно ломается кириллица (`Ð...`, `Р...`, нечитаемый текст);
+- нужно быстро применить безопасный session-level UTF-8 reset и повторить проблемную команду;
+- требуется понять, решается ли инцидент в текущей сессии или уже нужен возврат к machine-level baseline из onboarding.
 
 Путь к skill:
 
 ```text
-.codex-skills/skills/windows-utf8-guard
+.codex-skills/skills/windows-mojibake-first-aid
 ```
 
 ## Установка И Обновление
