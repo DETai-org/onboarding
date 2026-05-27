@@ -5,10 +5,10 @@ Usage:
     python3 send_telegram_message.py <session_name> <recipient_id> <message>
 
 The script is intended to live in:
-    /home/psy-ru/DETai-org/onboarding/scripts
+    /root/DETai-org/onboarding/scripts
 
-It finds Telegram sessions in the sibling projects repository:
-    /home/psy-ru/DETai-org/projects/Telegram/UserControl/session_file
+It finds Telegram sessions in the sibling Telegram repository:
+    /root/DETai-org/Telegram/Telegram/UserControl/session_file
 """
 
 from __future__ import annotations
@@ -23,7 +23,8 @@ from pathlib import Path
 from typing import Any
 
 TIMEOUT_SECONDS = 30
-SESSION_RELATIVE_DIR = Path("Telegram") / "UserControl" / "session_file"
+SESSION_RELATIVE_DIR = Path("Telegram") / "Telegram" / "UserControl" / "session_file"
+LEGACY_SESSION_RELATIVE_DIR = Path("Telegram") / "UserControl" / "session_file"
 LOGGER = logging.getLogger("send_telegram_message")
 
 
@@ -60,8 +61,8 @@ def configure_stdio() -> None:
 
 
 def detect_projects_root() -> Path:
-    # scripts/ -> onboarding/ -> DETai-org/ -> projects/
-    return Path(__file__).resolve().parents[2] / "projects"
+    # scripts/ -> onboarding/ -> DETai-org/
+    return Path(__file__).resolve().parents[2]
 
 
 def normalize_session_name(raw_name: str) -> str:
@@ -105,9 +106,11 @@ def candidate_session_dirs(projects_root: Path, explicit_session_dir: Path | Non
     paths.extend(
         [
             projects_root / SESSION_RELATIVE_DIR,
-            org_root / "projects" / SESSION_RELATIVE_DIR,
-            onboarding_root / "projects" / SESSION_RELATIVE_DIR,
+            org_root / SESSION_RELATIVE_DIR,
             onboarding_root / SESSION_RELATIVE_DIR,
+            projects_root / LEGACY_SESSION_RELATIVE_DIR,
+            org_root / "projects" / LEGACY_SESSION_RELATIVE_DIR,
+            onboarding_root / "projects" / LEGACY_SESSION_RELATIVE_DIR,
             Path.cwd() / SESSION_RELATIVE_DIR,
         ]
     )
@@ -409,7 +412,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "--projects-root",
         type=Path,
         default=detect_projects_root(),
-        help="Path to the projects repository. Defaults to ../projects from DETai-org.",
+        help="Path to the DETai-org project root. Defaults to ../.. from this script.",
     )
     parser.add_argument(
         "--session-dir",
