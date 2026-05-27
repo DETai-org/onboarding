@@ -280,7 +280,7 @@ async def try_send_by_imported_phone(
     for phone in candidates:
         LOGGER.info("Trying recipient as phone contact: %s", phone)
         try:
-            imported_users = await asyncio.wait_for(
+            imported_contacts = await asyncio.wait_for(
                 client.import_contacts(
                     [InputPhoneContact(phone=phone, first_name="Telegram", last_name="User")]
                 ),
@@ -290,18 +290,27 @@ async def try_send_by_imported_phone(
             LOGGER.info("Contact import failed for %s: %s", phone, exc)
             continue
 
+        imported_users = list(getattr(imported_contacts, "users", []) or [])
+        if not imported_users and isinstance(imported_contacts, (list, tuple)):
+            imported_users = list(imported_contacts)
+
         if not imported_users:
             LOGGER.info("Telegram returned no imported user for phone %s", phone)
             continue
 
         user = imported_users[0]
+        user_id = getattr(user, "id", None) or getattr(user, "user_id", None)
+        if user_id is None:
+            LOGGER.info("Imported Telegram contact has no usable user id for phone %s", phone)
+            continue
+
         LOGGER.info(
             "Imported contact resolved to user_id=%s username=%s",
-            getattr(user, "id", None),
+            user_id,
             getattr(user, "username", None),
         )
         return await asyncio.wait_for(
-            client.send_message(user.id, message),
+            client.send_message(user_id, message),
             timeout=TIMEOUT_SECONDS,
         )
 
