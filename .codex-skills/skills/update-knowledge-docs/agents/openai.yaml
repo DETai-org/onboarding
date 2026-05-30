@@ -1,0 +1,4 @@
+interface:
+  display_name: "Update Knowledge Docs"
+  short_description: "Publish ClickUp-reviewed Knowledge Substrate docs"
+  default_prompt: "Use $update-knowledge-docs to publish ready-for-publication ClickUp document versions into Knowledge Substrate with raw Markdown preservation, diff gates, and PR-ready checks."

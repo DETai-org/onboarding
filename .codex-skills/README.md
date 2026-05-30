@@ -13,6 +13,7 @@
   skills/
     det-ecosystem-doc-architect/
     knowledge-substrate-navigator/
+    update-knowledge-docs/
     windows-mojibake-first-aid/
 ```
 
@@ -70,6 +71,27 @@ knowledge_core/source_of_truth/docs
 
 ```text
 .codex-skills/skills/windows-mojibake-first-aid
+```
+
+### `update-knowledge-docs`
+
+Версия: `0.1.0`
+
+Назначение: публикация новых версий документов из ClickUp workflow
+`Новые версии документов` обратно в канонический репозиторий
+`Knowledge_substrate` с читаемым Git diff.
+
+Используйте этот skill, когда:
+
+- задача документа находится в статусе `READY FOR PUBLICATION`;
+- нужно перенести подготовленный Markdown обратно в канонический источник;
+- важно сохранить reviewable diff вместо полного переформатирования файла;
+- требуется пройти цикл `dry-run -> preview -> diff gate -> apply -> PR`.
+
+Путь к skill:
+
+```text
+.codex-skills/skills/update-knowledge-docs
 ```
 
 ## Установка И Обновление

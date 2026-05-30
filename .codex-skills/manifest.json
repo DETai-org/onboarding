@@ -13,6 +13,12 @@
       "updated_at": "2026-04-29",
       "description": "Read-only navigator for mapping Knowledge Substrate public URLs to local UTF-8 Markdown sources."
     },
+    "update-knowledge-docs": {
+      "version": "0.1.0",
+      "path": "skills/update-knowledge-docs",
+      "updated_at": "2026-05-30",
+      "description": "Publish edited Knowledge Substrate Markdown documents from the ClickUp ready-for-publication workflow back into the canonical repository."
+    },
     "windows-mojibake-first-aid": {
       "version": "0.2.0",
       "path": "skills/windows-mojibake-first-aid",
