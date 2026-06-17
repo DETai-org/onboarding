@@ -1,7 +1,6 @@
 ---
 name: det-ecosystem-doc-architect
-version: 0.2.0
-description: Use after implementation, release, or version-fixation work to act as a DET Ecosystem documentation architect: inspect the completed project/repository state, decide which documentation artifacts are needed, and draft/place guides, explanations, standards, policies, references, notes, or Knowledge Substrate docs according to DET documentation architecture. Do not use for onboarding tutorial issues, idea selection, Epic Issue planning, Work Package creation, coding implementation, or release/versioning execution unless the user explicitly asks for documentation architecture.
+description: "Use after implementation, release, or version-fixation work to act as a DET Ecosystem documentation architect: inspect the completed project/repository state, decide which documentation artifacts are needed, and draft/place guides, explanations, standards, policies, references, notes, or Knowledge Substrate docs according to DET documentation architecture. Do not use for onboarding tutorial issues, idea selection, Epic Issue planning, Work Package creation, coding implementation, or release/versioning execution unless the user explicitly asks for documentation architecture."
 ---
 
 # DET Ecosystem Doc Architect

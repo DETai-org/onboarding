@@ -11,8 +11,10 @@
   manifest.json
   README.md
   skills/
+    autofunnel-retrospective-analyzer/
     det-ecosystem-doc-architect/
     knowledge-substrate-navigator/
+    playwright/
     update-knowledge-docs/
     windows-mojibake-first-aid/
 ```
@@ -20,8 +22,23 @@
 - `manifest.json` — индекс shared skills: версии, пути, даты обновления и краткие описания.
 - `skills/` — папки skills, которые можно копировать в `$CODEX_HOME/skills`.
 - `README.md` — описание назначения и текущего состава командного реестра skills.
+- `codex-local-plugin-inventory.md` — снимок локальных Codex plugins в технической папке `.codex/plugins/cache`.
 
 ## Текущие Skills
+
+### `autofunnel-retrospective-analyzer`
+
+Версия: `3.4`
+
+Назначение: post-run директор и self-improving maintainer для `VK/auto_funnel` в API-only режиме.
+
+Используйте этот skill после завершённого запуска VK Auto Funnel, когда нужно разобрать свежий runner/state/history, API-call ledger и safety incidents; обновить per-profile `api_direct_plan.json`; подготовить first messages, inbound replies и social-life actions; настроить KPI, pacing, friend sources и candidate refill; проверить cross-profile dedup; убрать dead paths; записать change log директора.
+
+Путь к skill:
+
+```text
+.codex-skills/skills/autofunnel-retrospective-analyzer
+```
 
 ### `knowledge-substrate-navigator`
 
@@ -54,6 +71,20 @@ knowledge_core/source_of_truth/docs
 Используйте этот skill после того, как проект, фича, релиз или версия дошли до осмысленного завершённого состояния и требуют документационной архитектуры: какие артефакты нужны, какую функцию документа они выполняют и где должны храниться.
 
 Этот skill не должен использоваться для создания onboarding tutorial issues, выбора идеи, планирования Epic Issue, создания Work Package, написания кода или выполнения release/versioning-процесса, если пользователь явно не просит именно документационную архитектуру.
+
+### `playwright`
+
+Версия: `0.1.0`
+
+Назначение: terminal-first автоматизация реального браузера через Playwright CLI.
+
+Используйте этот skill, когда Codex должен открыть страницу, пройти UI-flow, заполнить форму, снять snapshot/screenshot, проверить локальный frontend или извлечь данные из браузерной страницы. Это техническая утилита для браузерной проверки и отладки, а не DET-специфичная ролевая модель.
+
+Путь к skill:
+
+```text
+.codex-skills/skills/playwright
+```
 
 ### `windows-mojibake-first-aid`
 
@@ -128,3 +159,4 @@ https://app.clickup.com/90152202658/v/li/901523014418
 - Предпочитайте ролевые skills одному большому универсальному skill.
 - Используйте `knowledge-substrate-navigator` как общую инфраструктурную способность для чтения канонических страниц Knowledge Substrate по браузерным ссылкам.
 - При изменении shared skills синхронизируйте копию в репозитории и локальную копию в `$CODEX_HOME/skills`.
+- Если локальная машина использует новые Codex plugins или cached plugin copies выглядят устаревшими, обновляйте `codex-local-plugin-inventory.md` вместе с этим README.

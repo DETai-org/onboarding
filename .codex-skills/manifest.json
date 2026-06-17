@@ -1,5 +1,11 @@
 {
   "skills": {
+    "autofunnel-retrospective-analyzer": {
+      "version": "3.4",
+      "path": "skills/autofunnel-retrospective-analyzer",
+      "updated_at": "2026-06-17",
+      "description": "Post-run VK Auto Funnel API-only director: analyzes runner state, safety ledgers, profile KPI/pacing, prepared messages, inbound replies, social-life actions, candidate refill, cross-profile dedup, cleanup, and continuous improvement history."
+    },
     "det-ecosystem-doc-architect": {
       "version": "0.2.0",
       "path": "skills/det-ecosystem-doc-architect",
@@ -12,6 +18,12 @@
       "path": "skills/knowledge-substrate-navigator",
       "updated_at": "2026-04-29",
       "description": "Read-only navigator for mapping Knowledge Substrate public URLs to local UTF-8 Markdown sources."
+    },
+    "playwright": {
+      "version": "0.1.0",
+      "path": "skills/playwright",
+      "updated_at": "2026-06-17",
+      "description": "Terminal-first Playwright CLI workflow for real-browser navigation, snapshots, form interactions, screenshots, data extraction, and UI-flow debugging."
     },
     "update-knowledge-docs": {
       "version": "0.1.0",

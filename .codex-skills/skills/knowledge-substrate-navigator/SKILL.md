@@ -1,6 +1,5 @@
 ---
 name: knowledge-substrate-navigator
-version: 0.1.1
 description: Use when the user provides a DETai Knowledge Substrate public MkDocs URL or asks to locate/read canonical Knowledge Substrate documentation from a local clone. Maps public URLs to local source-of-truth Markdown, reads Markdown as strict UTF-8, and ignores repo code/generated folders.
 ---
 
