@@ -5,7 +5,24 @@ description: "Используй после завершенного VK Auto Fun
 
 # Autofunnel API Director And Self-Improving Maintainer
 
-Версия навыка: `3.4`
+Версия навыка: `3.5`
+
+## Canonical References
+
+Перед ежедневной automation-ретроспективой сначала читай project runbook:
+
+- `VK/auto_funnel/docs/operations/daily-cycle.md`
+- `VK/auto_funnel/state/operations/daily_cycle_context.json`
+
+Локальные reference-файлы skill дополняют runbook и не должны расходиться с ним:
+
+- [references/api-direct-plan-schema.md](references/api-direct-plan-schema.md)
+- [references/daily-cycle-contract.md](references/daily-cycle-contract.md)
+- [references/inbound-handoff.md](references/inbound-handoff.md)
+- [references/safety-hold-policy.md](references/safety-hold-policy.md)
+
+Если длинная инструкция ниже конфликтует с project runbook по operational order,
+active accounts, account hold или inbound handoff, приоритет у project runbook.
 
 ## Назначение
 

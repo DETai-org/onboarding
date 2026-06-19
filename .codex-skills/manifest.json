@@ -1,9 +1,9 @@
 {
   "skills": {
     "autofunnel-retrospective-analyzer": {
-      "version": "3.4",
+      "version": "3.5",
       "path": "skills/autofunnel-retrospective-analyzer",
-      "updated_at": "2026-06-17",
+      "updated_at": "2026-06-19",
       "description": "Post-run VK Auto Funnel API-only director: analyzes runner state, safety ledgers, profile KPI/pacing, prepared messages, inbound replies, social-life actions, candidate refill, cross-profile dedup, cleanup, and continuous improvement history."
     },
     "det-ecosystem-doc-architect": {
