@@ -185,7 +185,15 @@ https://app.clickup.com/90152202658/v/li/901523014418
 
 https://app.clickup.com/90152202658/v/li/901525124627
 
-История изменений onboarding/tutorial-контура:
+История проектирования и сопровождения onboarding:
+
+https://app.clickup.com/90152202658/v/li/901525128363
+
+Каноническая модель onboarding:
+
+https://detai-org.github.io/Knowledge_substrate/ru/onboarding/
+
+Отдельный журнал прохождения onboarding новыми участниками:
 
 https://app.clickup.com/90152202658/v/li/901525126396
 
