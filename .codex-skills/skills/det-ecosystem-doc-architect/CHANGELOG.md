@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1 - 2026-08-14
+
+- Routed dated `log-summary` records to the owning ClickUp Folder's List
+  `logs` through the dedicated skill.
+- Removed the ambiguous local Markdown fallback for operational logs.
+- Updated Knowledge Substrate source paths to the current MkDocs mount.
+
 ## 0.2.0 - 2026-04-29
 
 - Reframed the skill as a post-implementation / post-release documentation architecture skill.

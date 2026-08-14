@@ -21,7 +21,7 @@ Public URL:
 `https://detai-org.github.io/Knowledge_substrate/ru/ecosystem/Management_layer/Docs-Ecosystem/functions_of_documents/`
 
 Local source in Knowledge_substrate:
-`knowledge_core/source_of_truth/docs/ru/ecosystem/Management_layer/Docs-Ecosystem/functions_of_documents.md`
+`knowledge_core/source_of_truth/docs/ecosystem/ru/ecosystem/Management_layer/Docs-Ecosystem/functions_of_documents.md`
 
 Use when deciding whether an artifact is `philosophy`, `principles`, `guide`, `explanation`, `standard`, `policy`, `reference`, `tutorial`, `how-to`, `log-summary`, `note`, or `index`.
 
@@ -43,7 +43,7 @@ Public URL:
 `https://detai-org.github.io/Knowledge_substrate/ru/ecosystem/Management_layer/Docs-Ecosystem/documentation-architecture/`
 
 Local source in Knowledge_substrate:
-`knowledge_core/source_of_truth/docs/ru/ecosystem/Management_layer/Docs-Ecosystem/documentation-architecture.md`
+`knowledge_core/source_of_truth/docs/ecosystem/ru/ecosystem/Management_layer/Docs-Ecosystem/documentation-architecture.md`
 
 Use when deciding where a document belongs.
 
@@ -56,13 +56,24 @@ Placement summary:
 - Explanation -> MkDocs / GitHub as part of the knowledge base when it explains ecosystem or cluster architecture.
 - README can point to a guide; guide can point to an explanation; explanation lives in the knowledge library.
 
+### Log Summary
+
+Route each `log-summary` to the owning project's ClickUp List `logs`. Use one
+task `Logs DD.MM.YYYY` per Folder and Moscow working date. Use the project-local
+route first; when completed work materially changes a neighboring project,
+write a separate short entry in that project's own log and link the records.
+
+Use the dedicated `log-summary` skill for the `type: log-summary` contract,
+confirmed provenance, Markdown API field, and cross-project routing. Never
+create a local Markdown substitute.
+
 ### Document Metadata Policy
 
 Public URL:
 `https://detai-org.github.io/Knowledge_substrate/ru/ecosystem/Management_layer/Docs-Ecosystem/document_metadata_policy/`
 
 Local source in Knowledge_substrate:
-`knowledge_core/source_of_truth/docs/ru/ecosystem/Management_layer/Docs-Ecosystem/document_metadata_policy.md`
+`knowledge_core/source_of_truth/docs/ecosystem/ru/ecosystem/Management_layer/Docs-Ecosystem/document_metadata_policy.md`
 
 Use when creating or validating Knowledge Substrate ecosystem markdown files with YAML frontmatter.
 

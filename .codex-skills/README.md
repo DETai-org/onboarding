@@ -14,6 +14,7 @@
     autofunnel-retrospective-analyzer/
     det-ecosystem-doc-architect/
     knowledge-substrate-navigator/
+    log-summary/
     playwright/
     update-knowledge-docs/
     windows-mojibake-first-aid/
@@ -28,7 +29,7 @@
 
 ### `autofunnel-retrospective-analyzer`
 
-Версия: `3.4`
+Версия: `3.5`
 
 Назначение: post-run директор и self-improving maintainer для `VK/auto_funnel` в API-only режиме.
 
@@ -72,6 +73,25 @@ knowledge_core/source_of_truth/docs
 
 Этот skill не должен использоваться для создания onboarding tutorial issues, выбора идеи, планирования Epic Issue, создания Work Package, написания кода или выполнения release/versioning-процесса, если пользователь явно не просит именно документационную архитектуру.
 
+### `log-summary`
+
+Версия: `0.1.0`
+
+Назначение: компактный дневной журнал завершённой работы в ClickUp List `logs`
+конкретного проекта, инструмента или инфраструктурного контура.
+
+Skill использует локальный маршрут проекта, создаёт одну task
+`Logs DD.MM.YYYY` на московскую рабочую дату, записывает форматированный
+Markdown, добавляет подтверждённую provenance участника и при реальном
+cross-project результате связывает отдельные локальные логи без копирования
+одного отчёта во все контейнеры.
+
+Путь к skill:
+
+```text
+.codex-skills/skills/log-summary
+```
+
 ### `playwright`
 
 Версия: `0.1.0`
@@ -88,7 +108,7 @@ knowledge_core/source_of_truth/docs
 
 ### `windows-mojibake-first-aid`
 
-Версия: `0.2.0`
+Версия: `0.2.1`
 
 Назначение: короткий first-response runbook на случай кракозябр в Windows-окружении при работе с PowerShell, Git и Codex.
 
@@ -152,6 +172,15 @@ https://app.clickup.com/90152202658/v/li/901523014418
 - Установка командных Codex skills: https://app.clickup.com/t/86c9gt4zp
 - Установка командных Codex skills с объяснением: https://app.clickup.com/t/86c9gt85g
 - Обновление командных Codex skills: https://app.clickup.com/t/86c9gt50x
+- Создание локального профиля участника DETai для Codex: https://app.clickup.com/t/86cb5ccf7
+
+Командные карточки skills и их связи с исходниками:
+
+https://app.clickup.com/90152202658/v/li/901525124627
+
+История изменений onboarding/tutorial-контура:
+
+https://app.clickup.com/90152202658/v/li/901525126396
 
 ## Заметки По Поддержке
 

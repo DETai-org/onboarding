@@ -7,9 +7,9 @@
       "description": "Post-run VK Auto Funnel API-only director: analyzes runner state, safety ledgers, profile KPI/pacing, prepared messages, inbound replies, social-life actions, candidate refill, cross-profile dedup, cleanup, and continuous improvement history."
     },
     "det-ecosystem-doc-architect": {
-      "version": "0.2.0",
+      "version": "0.2.1",
       "path": "skills/det-ecosystem-doc-architect",
-      "updated_at": "2026-04-29",
+      "updated_at": "2026-08-14",
       "changelog": "skills/det-ecosystem-doc-architect/CHANGELOG.md",
       "description": "Post-implementation and post-release documentation architecture for DET Ecosystem artifacts."
     },
@@ -18,6 +18,12 @@
       "path": "skills/knowledge-substrate-navigator",
       "updated_at": "2026-04-29",
       "description": "Read-only navigator for mapping Knowledge Substrate public URLs to local UTF-8 Markdown sources."
+    },
+    "log-summary": {
+      "version": "0.1.0",
+      "path": "skills/log-summary",
+      "updated_at": "2026-08-14",
+      "description": "Create, update, and close compact project-local daily log-summary tasks in ClickUp with portable metadata, confirmed team provenance, and linked cross-project routing."
     },
     "playwright": {
       "version": "0.1.0",

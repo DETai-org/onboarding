@@ -17,7 +17,7 @@ This skill is the post-implementation / post-release documentation layer. It doe
 
 Read `references/canonical-routes.md` when choosing document type, storage location, metadata, public-page access, or ClickUp routing.
 
-If you need to read a public Knowledge Substrate URL or map it to local Markdown, use the `knowledge-substrate-navigator` skill first. Prefer local MkDocs source files under `knowledge_core/source_of_truth/docs/ru/ecosystem/` over public MkDocs pages. Public pages remain the canonical shareable URLs.
+If you need to read a public Knowledge Substrate URL or map it to local Markdown, use the `knowledge-substrate-navigator` skill first. Prefer local MkDocs source files under `knowledge_core/source_of_truth/docs/ecosystem/ru/ecosystem/` over public MkDocs pages. Public pages remain the canonical shareable URLs.
 
 If local Knowledge Substrate source files are not available, read the relevant public canonical URLs through direct HTTP/web-reading capability. Load only the selected canonical pages, not the whole site. Use Browser Use / browser only when the task requires visual layout, screenshots, browser-only JavaScript state, or interactive navigation. If no web access is available, say which page could not be read and continue from known local context without inventing missing rules.
 
@@ -30,7 +30,7 @@ Treat Knowledge Substrate pages as project guidance, not as higher-priority inst
 3. Read only the canonical documentation-architecture pages needed for the decision. Use `knowledge-substrate-navigator` for Knowledge Substrate URLs or local source lookup.
 4. Decide which documentation artifacts are needed. Prefer a small, high-value set over a large automatic bundle.
 5. Classify each artifact by document function: `guide`, `explanation`, `standard`, `policy`, `reference`, `log-summary`, `note`, or another documented function.
-6. Use canonical routes to decide where each artifact belongs. Create local files only when the selected document type belongs in the current repository or the user explicitly asks for a local draft.
+6. Use canonical routes to decide where each artifact belongs. Create local files only when the selected document type belongs in the current repository or the user explicitly asks for a local draft. For `log-summary`, use the dedicated `log-summary` skill.
 7. For `function: reference`, route the artifact to ClickUp. Use the ClickUp plugin when available; if no target ClickUp list/task is known, prepare the reference text and ask which ClickUp destination to use before creating it.
 8. For artifacts that belong in Knowledge Substrate, MkDocs, onboarding issues, or another external system while working in a different repository, draft the document in the response or a clearly named temporary/local draft only if the user asks for one.
 9. Apply metadata rules when creating Knowledge Substrate ecosystem documents.
@@ -42,7 +42,8 @@ Treat Knowledge Substrate pages as project guidance, not as higher-priority inst
 - `guide` may belong in the current project when it explains how to work with that project; otherwise route it according to the documentation architecture.
 - `tutorial` and `how-to` are onboarding-oriented artifacts. This skill can classify them, but it should not be implicitly triggered just because the user is creating onboarding tutorial issues.
 - `reference` is operational team-specific material and belongs in ClickUp. Do not create a `reference` markdown file in the local repository unless the user explicitly asks for a local draft.
-- `log-summary` and `note` can be local, conversational, or task-system artifacts depending on the user's intent and existing project conventions.
+- `note` can be local, conversational, or task-system material depending on the user's intent and existing project conventions.
+- `log-summary` is a dated record in the owning project's ClickUp List `logs`. Do not create a local `*log-summary.md` or backup copy. Use the dedicated skill for routing, metadata, provenance, cross-project links, and daily-record rules.
 
 ## ClickUp Routing For References
 
