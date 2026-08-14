@@ -38,6 +38,9 @@ not a plan, machine inventory, or second source of truth.
    `context` are local cached defaults governed by the metadata schema registry.
 7. If a required route remains unknown or inaccessible, report the missing
    List ID. Never substitute a local `*log-summary.md`.
+8. When a new workspace has no project-local route yet, follow the team setup
+   tutorial: <https://github.com/DETai-org/onboarding/issues/32>. Do not turn a
+   whole-Workspace scan into the normal logging procedure.
 
 ## Identify The Daily Record
 

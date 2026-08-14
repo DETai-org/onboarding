@@ -86,6 +86,9 @@ Markdown, добавляет подтверждённую provenance участ�
 cross-project результате связывает отдельные локальные логи без копирования
 одного отчёта во все контейнеры.
 
+Настройка нового локального проекта и его `AGENTS.md` описана в tutorial
+[«Подключить локальный проект к ClickUp logs»](https://github.com/DETai-org/onboarding/issues/32).
+
 Путь к skill:
 
 ```text
