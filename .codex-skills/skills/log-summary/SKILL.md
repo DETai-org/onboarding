@@ -76,7 +76,9 @@ identity:
 - Treat GitHub numeric user ID as stable `person_id`; use GitHub login as the
   team username and cross-check it against ClickUp without case sensitivity.
 - If the profile is absent or the usernames conflict, stop identity resolution
-  and use the onboarding tutorial and prompt to create or repair the profile.
+  and use the [onboarding tutorial](https://github.com/DETai-org/onboarding/issues/33)
+  plus the [profile prompt](https://app.clickup.com/t/86cb5ccf7) to create or
+  repair the profile.
 - Never store tokens, passwords, email, cookies, or other secrets.
 
 ## Portable Metadata

@@ -29,11 +29,13 @@
 
 ### `autofunnel-retrospective-analyzer`
 
-Версия: `3.5`
+Версия: `3.5.1`
 
 Назначение: post-run директор и self-improving maintainer для `VK/auto_funnel` в API-only режиме.
 
 Используйте этот skill после завершённого запуска VK Auto Funnel, когда нужно разобрать свежий runner/state/history, API-call ledger и safety incidents; обновить per-profile `api_direct_plan.json`; подготовить first messages, inbound replies и social-life actions; настроить KPI, pacing, friend sources и candidate refill; проверить cross-profile dedup; убрать dead paths; записать change log директора.
+
+Это специфический skill. Используйте его только при наличии доступа к репозиторию WK и рабочему контуру `VK/auto_funnel`.
 
 Путь к skill:
 
@@ -86,8 +88,10 @@ Markdown, добавляет подтверждённую provenance участ�
 cross-project результате связывает отдельные локальные логи без копирования
 одного отчёта во все контейнеры.
 
-Настройка нового локального проекта и его `AGENTS.md` описана в tutorial
-[«Подключить локальный проект к ClickUp logs»](https://github.com/DETai-org/onboarding/issues/32).
+Объяснение skills, назначение `log-summary`, установка и локальный профиль
+описаны в tutorial [«Codex skills и log-summary»](https://github.com/DETai-org/onboarding/issues/33).
+Настройка нового локального проекта и его `AGENTS.md` продолжается в tutorial
+[«Подключить log-summary к рабочему проекту»](https://github.com/DETai-org/onboarding/issues/32).
 
 Путь к skill:
 

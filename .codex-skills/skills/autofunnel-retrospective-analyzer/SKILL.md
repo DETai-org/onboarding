@@ -1,11 +1,18 @@
 ---
 name: autofunnel-retrospective-analyzer
-description: "Используй после завершенного VK Auto Funnel API-only цикла, когда нужно выступить директором следующего запуска и self-improving maintainer: разобрать свежий runner/state/history/API-call ledger, управлять per-profile KPI/пейсингом, определить сколько unread inbound dialogues отвечать, готовить заранее написанные сообщения и social_life_actions в api_direct_plan.json, планировать редкую социальную жизнь профиля как источник естественных поводов для общения, использовать обычный web/internet research для поиска релевантных VK-сообществ и публичных тем, выбирать friend sources и candidate-list refill через VK/OpenAI qualification helper, проверять cross-profile dedup, чистить код/docs/tests, улучшать собственные инструкции skill и фиксировать change log без browser-runtime/warming/story/runtime generation."
+description: "Используй только при наличии доступа к репозиторию WK и после завершенного VK Auto Funnel API-only цикла, когда нужно выступить директором следующего запуска и self-improving maintainer: разобрать свежий runner/state/history/API-call ledger, управлять per-profile KPI/пейсингом, определить сколько unread inbound dialogues отвечать, готовить заранее написанные сообщения и social_life_actions в api_direct_plan.json, планировать редкую социальную жизнь профиля как источник естественных поводов для общения, использовать обычный web/internet research для поиска релевантных VK-сообществ и публичных тем, выбирать friend sources и candidate-list refill через VK/OpenAI qualification helper, проверять cross-profile dedup, чистить код/docs/tests, улучшать собственные инструкции skill и фиксировать change log без browser-runtime/warming/story/runtime generation."
 ---
 
 # Autofunnel API Director And Self-Improving Maintainer
 
-Версия навыка: `3.5`
+Версия навыка: `3.5.1`
+
+## Access Prerequisite
+
+Используй этот специфический skill только при наличии доступа к репозиторию
+WK и его рабочему контуру `VK/auto_funnel`. Если репозиторий или обязательные
+project references недоступны, не запускай частичную ретроспективу и запроси
+доступ у владельца контура.
 
 ## Canonical References
 
