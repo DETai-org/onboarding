@@ -1,12 +1,11 @@
 <#
 .SYNOPSIS
-Publish a prepared ClickUp document version back into Knowledge Substrate.
+Publish a prepared Team OS document version back into Knowledge Substrate.
 
 .DESCRIPTION
-This script is the reverse side of export-knowledge-doc-to-clickup-new-version.ps1.
-It intentionally treats ClickUp as workflow/status metadata and prefers a local
-raw Markdown source for the actual document body, because ClickUp rich text may
-normalize Markdown when descriptions are read back through API/connectors.
+The legacy script filename is retained for compatible callers. This local-only
+Markdown publisher accepts a canonical Team OS RecordId. It does not contact
+ClickUp; editorial readiness is verified through Team OS before invocation.
 
 Default mode is dry-run: it validates inputs, resolves the canonical Markdown
 file from front matter, writes a preview, and prints the expected git diff.
@@ -18,13 +17,14 @@ param(
     [Parameter(Mandatory = $true, Position = 0)]
     [string]$MarkdownSource,
 
+    [Alias("RecordId")]
     [string]$TaskId,
 
     [string]$KnowledgeRoot = "D:\dev\DETai-org\Knowledge_substrate",
 
     [string]$DocsRoot = "knowledge_core\source_of_truth\docs",
 
-    [string]$OutputDir = "D:\dev\DETai-org\Management_Layer\generated\clickup-publication-preview",
+    [string]$OutputDir = "D:\dev\DETai-org\Management_Layer\generated\team-os-publication-preview",
 
     [int]$MaxChangedLines = 40,
 

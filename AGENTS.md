@@ -17,42 +17,34 @@ https://github.com/DETai-org/onboarding/tree/main/.codex-skills
 
 Используй skill `log-summary`. Не создавай локальный `*log-summary.md`.
 
-```yaml
-log_summary:
-  list_id: "901525128363"
-  list_url: "https://app.clickup.com/90152202658/v/li/901525128363"
-  scope: Governance
-  context: onboarding-management
-  navigation_key: onboarding_management
-  global_navigation: D:\dev\DETai-org\Management_Layer\docs\clickup-navigation\index.yaml
-```
+Основной маршрут этого репозитория — проект сопровождения onboarding
+в Management Layer Team OS: [WorkLog List](https://team.detai-x.com/task-center/lists/de775f74-1778-54e0-ae09-b49807a1e6f6).
+Разреши точный URL/UUID через Core, затем project и primary Logs через live
+registry; проверь `kind: "list"`, `contentKind: "work_log"`, текущую version/ACL.
+Используй дневной WorkLog и отдельный короткий personal checkpoint, не Task.
 
-Основной маршрут этого репозитория — List `logs` в Folder `Onboarding` внутри
-Space `Management Layer`. Здесь владельцы проектируют, обновляют и сопровождают
-onboarding. Для обычной работы не сканируй весь ClickUp.
-
-Каноническая модель onboarding, его GitHub- и ClickUp-контуры описаны в
-Knowledge Substrate:
+Каноническая модель onboarding описана в Knowledge Substrate:
 https://detai-org.github.io/Knowledge_substrate/ru/onboarding/.
 
-Не подменяй этот маршрут List `logs` из отдельного Space `Onboarding`: тот
-контейнер фиксирует прохождение tutorial-задач новыми участниками и использует
-classification `Onboarding / participant-onboarding`. При материальной связи
-создай две короткие записи и свяжи их, не смешивая management-работу с
-участническим прогрессом.
+Не подменяй этот маршрут [WorkLog List прохождения участниками](https://team.detai-x.com/task-center/lists/526b6285-289e-5eb5-8c26-26ee57300edd):
+он фиксирует tutorial progress и сохраняет отдельную classification
+`Onboarding / participant-onboarding`. При материальной связи создай две
+короткие записи и свяжи их, не смешивая management-работу с участническим прогрессом.
 
-Если завершённая работа материально изменила соседний проект или инструмент,
-используй `global_navigation`, найди только его маршрут, live-проверь List
-`logs` и создай отдельный короткий фрагмент в его дневной записи. Свяжи два
-лога ссылками и не копируй один отчёт целиком.
+Если изменился соседний проект, разреши только его Core project/Logs и свяжи
+короткие локальные итоги; не копируй весь отчёт. Начальный контекст не загружай
+перед каждым CRUD. При отказе OAuth нужен reconnect/rescan Team-OS App; при
+отсутствии маршрута — draft и причина. ClickUp API, navigation YAML и server
+bearer не являются fallback.
 
-## ClickUp
+## Team OS
 
-- prompts для Codex: https://app.clickup.com/90152202658/v/li/901523014418
-- карточки командных skills: https://app.clickup.com/90152202658/v/li/901525124627
-- сопровождение onboarding: https://app.clickup.com/90152202658/v/li/901525128363
-- прохождение onboarding участниками: https://app.clickup.com/90152202658/v/li/901525126396
+- prompts для Codex: https://team.detai-x.com/task-center/lists/5c5ee31f-a307-50e9-8cc1-b333663869a0
+- карточки командных skills: https://team.detai-x.com/task-center/lists/4de5bc43-0250-57d3-aa83-93ab38b449b7
+- сопровождение onboarding: https://team.detai-x.com/task-center/lists/de775f74-1778-54e0-ae09-b49807a1e6f6
+- прохождение onboarding участниками: https://team.detai-x.com/task-center/lists/526b6285-289e-5eb5-8c26-26ee57300edd
 
-Текст task description, содержащий Markdown, передавай через
-`markdown_description`; при чтении запрашивай
-`include_markdown_description=true`.
+Для текста читай raw Markdown и version из канонического Core DTO выбранного
+типа; не используй ClickUp description transport. Новая запись без уточнённого
+типа — Task, explicit Note/WorkLog и редактирование выбранной записи сохраняют
+её тип. Перед create проверь совместимость List, перед patch — expectedVersion.

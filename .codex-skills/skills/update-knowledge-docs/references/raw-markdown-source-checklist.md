@@ -12,7 +12,7 @@ file by that paragraph plus required metadata only.
 
 ## Preparation
 
-1. Start from the baseline Markdown file, not from ClickUp plain text.
+1. Start from the baseline Markdown file, not from a plain-text rendering of Team OS.
 2. Copy the ready-for-publication editorial changes into that baseline.
 3. Preserve unchanged Markdown exactly where possible.
 4. Keep the existing canonical path and MkDocs URL.
@@ -50,9 +50,10 @@ For major version rewrites:
 - the reviewer must confirm that the large diff is real content change;
 - use `-AllowLargeDiff` only after that confirmation.
 
-## Manual comparison against ClickUp
+## Manual comparison against Team OS
 
-Because ClickUp may normalize Markdown, compare meaning rather than raw syntax:
+Сравнивай исходный Markdown канонической Task/Note Team OS с подготовленной
+публикацией; не подменяй его визуальным plain-text пересказом:
 
 - same title;
 - same version;

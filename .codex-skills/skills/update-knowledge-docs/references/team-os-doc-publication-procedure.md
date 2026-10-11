@@ -1,22 +1,23 @@
-# ClickUp document publication procedure
+# Team OS document publication procedure
 
-This procedure publishes edited ClickUp document versions back into
+This procedure publishes согласованные редакционные изменения Team OS back into
 Knowledge Substrate without turning review diffs into formatting noise.
 
 ## Core principle
 
-Knowledge Substrate keeps the canonical Markdown file. ClickUp is the editorial
+Knowledge Substrate keeps the canonical Markdown file. Team OS is the editorial
 workflow surface, not the only reliable raw Markdown source.
 
-The ClickUp connector may return task descriptions as normalized plain text.
-Do not publish that text directly into Knowledge Substrate unless the document
-is intentionally being reconstructed.
+Разреши канонический URL/UUID через Core resolve_resource; получи исходный
+Markdown и version Task/Note. При недоступном OAuth сообщи о reconnect,
+не обращайся к ClickUp или PostgreSQL как запасному пути.
 
 ## Inputs
 
 Use these inputs for each publication:
 
-1. ClickUp task in `READY FOR PUBLICATION`.
+1. Task/Note Team OS с подтверждённой готовностью: workflow Task или явное
+   согласование пользователя для Note, без выдуманных статусов выполнения Note.
 2. Matching `BASELINE` task or current canonical Markdown file.
 3. Raw Markdown publication source in `Management_Layer/generated/...`.
 4. Canonical Knowledge Substrate Markdown file resolved from front matter
@@ -41,7 +42,7 @@ If a document needs formatting normalization, do it in a separate PR.
 Dry-run first:
 
 ```powershell
-.\scripts\publish-clickup-doc-version.ps1 <raw markdown source> -TaskId <ClickUp task id>
+.\scripts\publish-clickup-doc-version.ps1 <raw markdown source> -RecordId <Team OS record UUID>
 ```
 
 The script:
@@ -50,20 +51,20 @@ The script:
 - sets `descriptive.status: active` in the preview;
 - resolves the canonical Markdown file from the MkDocs URL;
 - checks `title` and `descriptive.id` against the target file;
-- writes a preview to `generated/clickup-publication-preview`;
+- writes a preview to `generated/team-os-publication-preview`;
 - prints the expected diff;
 - reports a diff gate.
 
 Apply only after review:
 
 ```powershell
-.\scripts\publish-clickup-doc-version.ps1 <raw markdown source> -TaskId <ClickUp task id> -Apply
+.\scripts\publish-clickup-doc-version.ps1 <raw markdown source> -RecordId <Team OS record UUID> -Apply
 ```
 
 Large diffs are blocked by default. Use this only when the rewrite is expected:
 
 ```powershell
-.\scripts\publish-clickup-doc-version.ps1 <raw markdown source> -TaskId <ClickUp task id> -Apply -AllowLargeDiff
+.\scripts\publish-clickup-doc-version.ps1 <raw markdown source> -RecordId <Team OS record UUID> -Apply -AllowLargeDiff
 ```
 
 ## Diff gate interpretation
@@ -87,7 +88,7 @@ For `large-diff`, do not apply immediately. First decide which case it is:
 
 Before applying:
 
-- ClickUp task status is `ready for publication`;
+- готовность Task/Note Team OS и текущая version подтверждены;
 - task title matches front matter `title`;
 - ready task version matches front matter `descriptive.version`;
 - canonical path is the existing file, not a new path;
