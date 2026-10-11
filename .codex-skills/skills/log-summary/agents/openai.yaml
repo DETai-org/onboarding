@@ -1,7 +1,7 @@
 interface:
   display_name: "Log Summary"
-  short_description: "Дневной ClickUp-журнал работы"
-  default_prompt: "Use $log-summary to create or update today's project log in ClickUp."
+  short_description: "Дневная рабочая сводка Team OS"
+  default_prompt: "Use $log-summary to create or update today's project WorkLog in Team OS."
 
 policy:
   allow_implicit_invocation: true

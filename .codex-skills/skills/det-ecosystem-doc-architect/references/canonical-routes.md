@@ -51,21 +51,23 @@ Placement summary:
 
 - Standards -> Knowledge library -> MkDocs / GitHub.
 - Policies -> ecosystem-level policies -> MkDocs / GitHub.
-- References -> operational team-specific concrete data -> ClickUp.
+- References -> operational team-specific concrete data -> Team OS Note List.
 - Tutorial / How-to -> onboarding route -> onboarding repository issues unless the user asks for a project-local draft.
 - Explanation -> MkDocs / GitHub as part of the knowledge base when it explains ecosystem or cluster architecture.
 - README can point to a guide; guide can point to an explanation; explanation lives in the knowledge library.
 
-### Log Summary
+### Operational Log Summary
 
-Route each `log-summary` to the owning project's ClickUp List `logs`. Use one
-task `Logs DD.MM.YYYY` per Folder and Moscow working date. Use the project-local
-route first; when completed work materially changes a neighboring project,
-write a separate short entry in that project's own log and link the records.
+`log-summary` records a dated result of completed work or state. After the
+11.10.2026 cutover, route it through Core project navigation to the same
+project's primary WorkLog List (`contentKind=work_log`). Use the log-summary
+skill for date/timezone, version-safe daily update and personal checkpoint.
+An unavailable route or OAuth reconnect stops the write; it does not route
+back to ClickUp or create a local fallback journal.
 
-Use the dedicated `log-summary` skill for the `type: log-summary` contract,
-confirmed provenance, Markdown API field, and cross-project routing. Never
-create a local Markdown substitute.
+The project AGENTS.md provides scope/context hints. Core owns the current
+project UUID, parent contentKind, ACL and routes. Historical ClickUp List IDs
+are provenance, not a writable destination.
 
 ### Document Metadata Policy
 

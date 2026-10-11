@@ -1,173 +1,175 @@
 ---
 name: log-summary
-description: Create, update, or close a compact daily log-summary in the owning project's ClickUp List `logs`. Use for a requested log summary, daily recap, mini-report, «на сегодня хватит», «подведём итоги», or a consequential completed checkpoint. Use project-local routing first, write a separate linked entry for each materially affected neighboring project, and never create a local Markdown log-summary.
+description: >-
+  Подготавливает, записывает или читает сводки о проделанной работе в Team OS.
+  Используй для «на сегодня работа закончена», «подведём итоги»,
+  «сделай сводку о проделанной работе», «запиши итог в логи проекта»,
+  «покажи, что сделали за неделю». Разрешает проект и его Logs через живую
+  навигацию, отделяет WorkLog от задач, заметок и личного checkpoint.
+  Не используется для сырой телеметрии, планирования или автоматической публикации.
 ---
 
-# Log Summary
+# Сводка о проделанной работе
 
-Keep one compact, portable record of what actually changed in one project
-container during a Moscow working date. A `log-summary` is historical evidence,
-not a plan, machine inventory, or second source of truth.
+Сохрани компактное свидетельство результата в правильном проекте либо прочитай
+его историю за запрошенный период. Явный запрос заметки не обрабатывай как сводку,
+а «подведи итоги» без просьбы сохранить заверши черновиком в чате. WorkLog —
+запись о сделанном, не задача,
+не личный профиль и не полный протокол разговора.
 
-## Resolve The Owning Container
+## 1. Определи действие
 
-1. Read the active project's `AGENTS.md` and use its `log_summary` route first:
+Различай:
+- **прочитать/суммировать период** — только чтение;
+- **подготовить итог** — текст для согласования, без автоматической записи;
+- **создать/обновить/зафиксировать сводку** — запись разрешена в указанном проекте;
+- **закрыть дневную сводку** — final только при явном намерении завершить этот итог.
 
-   ```yaml
-   log_summary:
-     list_id: <ClickUp logs List ID>
-     scope: <registered scope>
-     context: <registered single context>
-     navigation_key: <project key in the shared map>
-     global_navigation: D:\dev\DETai-org\Management_Layer\docs\clickup-navigation\index.yaml
-   ```
+Фраза «подведём итоги» активирует процедуру, но сама по себе не разрешает
+публикацию, изменение задач, принципов или доступа. Если сохранение не указано
+и не согласовано как часть текущего процесса, покажи краткий текст и уточни
+сохранение один раз. Явный запрос записи не требует повторять тот же вопрос.
+Соблюдай фактические confirm/expectedVersion требования инструмента.
 
-2. Treat `scope` as the registered area and `context` as the single concrete
-   project, tool, or operational container. Do not put several contexts in one
-   record.
-3. Use `global_navigation` only when completed work materially changed a
-   neighboring project and its local route is not already known. Resolve only
-   the required neighbor by `navigation_key`; do not crawl all ClickUp.
-4. For a real cross-project result, update each affected project's own daily
-   record with only its local consequence. Add reciprocal links under
-   `Связанные логи`; do not paste the same report into several containers.
-5. Before a neighbor write, live-check that the resolved target is the List
-   `logs` inside the expected Folder. Treat the shared map as navigation, not
-   as proof that stale external state is still correct.
-6. Keep classification out of the global navigation map. Project `scope` and
-   `context` are local cached defaults governed by the metadata schema registry.
-7. If a required route remains unknown or inaccessible, report the missing
-   List ID. Never substitute a local `*log-summary.md`.
-8. When a new workspace has no project-local route yet, follow the team setup
-   tutorial: <https://github.com/DETai-org/onboarding/issues/32>. Do not turn a
-   whole-Workspace scan into the normal logging procedure.
+## 2. Разреши проект и маршрут динамически
 
-## Identify The Daily Record
+Если пользователь дал нативную ссылку Team OS или UUID ресурса, сначала вызови
+`resolve_resource` с точной ссылкой; используй typed resource и его project/target.
+Если проект не найден в результате, разреши его через `resolve_project`.
+Стартовый контекст прочитай один раз и не загружай перед каждым вызовом. Для
+проверки свежести используй `get_context_versions` (версии и digest без текстов),
+а повторное чтение делай только при смене target/учётной записи, изменении версии,
+явной просьбе обновить контекст или нехватке данных.
+Используй явную ссылку/target пользователя или однозначный текущий проект.
+Вызови `resolve_project` с projectId или q/reference и получи canonical project/folder ID,
+его разрешённый Scope/path, версию и semantic route `logs` с типом WorkLog.
+Можно искать проект по имени/alias/repository reference, но перед записью нужен
+однозначно разрешённый UUID, а не совпадение строки.
 
-1. Determine the working date in `Europe/Moscow`.
-   - Use the Moscow calendar date by default.
-   - Between `00:00` and `03:59`, retain the previous date only when the
-     conversation clearly continues that previous day's session.
-   - An explicit user-supplied date wins.
-2. In the resolved List, find `Logs DD.MM.YYYY`. There is exactly one task per
-   Folder and working date. Create it only when absent; otherwise update it.
-3. Request existing content with `include_markdown_description=true` when using
-   the ClickUp API.
-4. Create or update task content through `markdown_description`, not the plain
-   `description` field.
+Не держи внутри skill каталог проектов, URL Logs, UUID и локальные пути
+`D:\...`. Не используй README проекта или Git-export навигации как более свежую
+истину, чем Core. Они помогают разрешить reference, но target/version/access
+подтверждает сервер. Если route не настроен, архивирован или проект ещё не
+мигрирован, не пиши в похожий доступный лист, не создавай контейнер автоматически
+и не переключайся на ClickUp.
+Верни черновик в чат и назови недостающий маршрут.
 
-## Resolve Provenance
+У готового `routes.logs.target` проверь `id`, `kind=list`, `contentKind=work_log`
+из канонического Core. Роль `logs` сама не определяет тип. Если известен только
+List UUID, сначала разреши его через `get_container`, затем найди однозначный
+проект через live navigation. Не создавай WorkLog в Task/Note List.
 
-Read `~/.codex/detai-user.yaml`. Accept only this confirmed local profile:
+У каждого существенно затронутого проекта своя запись: пиши только его локальное
+последствие и связывай созданные WorkLogs. Не копируй целый отчёт в несколько
+проектов. Перед каждой связью проверь аудиторию: общий лог не должен раскрывать
+личную заметку, закрытый проект, его название или приватную ссылку.
 
-```yaml
-schema: detai-local-user-profile
-version: 1
-identity:
-  person_id: github-user-<numeric-github-id>
-  display_name: <confirmed display name>
-  github_username: <GitHub login>
-  clickup_username: <matching ClickUp username>
-  clickup_user_id: <numeric ClickUp user ID>
-```
+## 3. Выбери дату и дневную запись
 
-- Never infer identity from the OpenAI profile, Windows username, or prose in
-  the conversation.
-- Treat GitHub numeric user ID as stable `person_id`; use GitHub login as the
-  team username and cross-check it against ClickUp without case sensitivity.
-- If the profile is absent or the usernames conflict, stop identity resolution
-  and use the [onboarding tutorial](https://github.com/DETai-org/onboarding/issues/33)
-  plus the [profile prompt](https://app.clickup.com/t/86cb5ccf7) to create or
-  repair the profile.
-- Never store tokens, passwords, email, cookies, or other secrets.
+Рабочая дата — отдельное typed поле `workDate`, а не дата создания или последнее
+редактирование записи. Используй timezone проекта/разрешённые настройки.
+Для прежнего DETai log-summary переносится default Europe/Moscow; явная дата
+пользователя имеет приоритет. Между 00:00 и 03:59 предыдущий день выбирается
+только при явном продолжении предыдущей сессии, а не автоматически по часам.
 
-## Portable Metadata
+Сохраняется одна canonical дневная сводка на проектный контейнер и рабочую дату.
+Её уникальность обеспечивает Core, не поиск названия `Logs DD.MM.YYYY` в чате.
+Человекочитаемый title может сохранять этот формат, но title — не ключ.
+Смена primary Logs route не создаёт второй итог за ту же дату; неоднозначность
+старых записей разрешает контролируемая миграция, а не случайный выбор.
 
-Begin `markdown_description` with a fenced YAML block. Follow the canonical
-`type: log-summary` contract and preserve valid creation values when updating.
+Вызови `work_log` action=list с projectId, from=to=workDate; затем action=read
+по найденному id. Прочитай текущую запись с версией, если она существует. Повтор команды обновляет
+её или возвращает результат той же idempotent операции, не создаёт дубль.
+Две параллельные сессии не должны затирать вклад друг друга. Сохрани прежние
+createdBy/createdAt, contributor attribution и уже подтверждённые результаты.
 
-````markdown
-```yaml
----
-type: log-summary
-classification:
-  scope: <registered scope>
-  context: <registered single context>
-  function: log-summary
-descriptive:
-  id: log-summary-<clickup-list-id>-<YYYY-MM-DD>
-  date_ymd: <YYYY-MM-DD>
-  status: draft
-  created_at_msk: <YYYY-MM-DDTHH:MM:SS+03:00>
-  updated_at_msk: <YYYY-MM-DDTHH:MM:SS+03:00>
-provenance:
-  performed_by:
-    person_id: <profile identity.person_id>
-    display_name: <profile identity.display_name>
-    github_username: <profile identity.github_username>
-    clickup_username: <profile identity.clickup_username>
-  recorded_by: Codex
-links:
-  related_logs: []
----
-```
-````
+## 4. Собери только подтверждённые результаты
 
-After the metadata block, show only `@<clickup_username>` on its own line. Do
-not prefix it with `Участник:`.
+Используй текущий разговор и связанные задачи/PR/проверки, которые доступны
+и действительно относятся к этой работе. При необходимости проверь артефакт
+через соответствующий connector. Различай написанный код, Draft PR, merge,
+проверку, deployment и пользовательскую приёмку.
 
-## Write Checkpoints And Close Deliberately
+У Note/WorkLog нет assignee. Создателя и автора изменения фиксирует
+авторизованный Core; `recordedVia` указывает канал помощника отдельно от человека.
+Не представляй всех исполнителей работы как одного создателя записи. Не
+угадывай авторство по Windows username, локальному YAML или имени в тексте.
 
-Write a checkpoint only after a completed result, decision, handoff, or
-unresolved blocker would otherwise be lost.
+Коротко фиксируй результат, решение, фактический blocker и ссылки на evidence.
+Не копируй raw-логи, инвентарь оборудования, secrets, токены, клиентские сведения,
+всю переписку или актуальные принципы пользователя. Не добавляй запись только
+потому, что прошло время или работа ещё запланирована.
 
-- Add the smallest useful chronological block, normally one to three bullets.
-- Link the owning artifact, task, verification, or related project log.
-- Keep technical specifications, raw output, and inventories in their owning
-  reference; link them instead of copying them.
-- Do not create a log merely because time passed or work is still planned.
+[Формат сводки](references/format.md) — ориентир компактности. Технические
+metadata хранятся typed в Core. Для portable Markdown export YAML формируется
+из них, не редактируется параллельно как второй источник истины.
 
-Treat «на сегодня хватит», «закрываем день», «подведём итоги», or equivalent
-language as finalization. Consolidate duplicates, add one daily outcome, and
-change `status` to `final`. Do not infer closure from the clock alone.
+## 5. Запиши через Core/MCP
 
-## Compact Description Shape
+Вызови `save_work_log` с projectId, workDate, timezone, expectedVersion,
+idempotencyKey и confirm=true. Для новой дневной записи expectedVersion=0.
+Текст передай в blocks:[{id,bodyMd}] со stable UUID блока текущего автора;
+source references — evidence:[{url,label}], участников — contributorIds.
+Core сам проверяет primary route. status=draft|final задаёт lifecycle сводки.
+При отсутствии WorkLog-инструмента не используй create_work_item или
+save_personal_note как подмену и не обращайся к SQL напрямую.
 
-````markdown
-<fenced metadata block>
+При 409 перечитай запись, сохрани чужой вклад и согласуй действительно
+конфликтующие изменения; не подставляй свежую version для слепой перезаписи.
+При сетевой неопределённости проверь состояние/idempotency, прежде чем повторять.
+Успех подтверждается ответом Core и ID/URL/version, не собственным текстом агента.
 
-@<clickup_username>
+Обычный промежуточный результат оставляет WorkLog в draft. Явное закрытие
+сводки переводит в final и добавляет один короткий итог. Final не означает
+«все задачи проекта выполнены» и не меняет Task states. Если КВЦ не была
+определена или не достигнута, не добавляй утверждение об успехе.
 
-Контур: <context>
+## 6. Короткое продолжение — второй результат согласованного завершения
 
-## Ход работы
+WorkLog отвечает «что сделали в проекте», checkpoint — «откуда мне продолжить».
+Не объединяй их в один shared текст. Когда пользователь завершает работу и
+поручает сохранить итог/продолжение, согласованный процесс включает оба результата;
+не требуй ещё одного круга согласования checkpoint. Перед WorkLog прочитай
+`get_my_home` для того же project target и сохрани baseline focus version.
+После успешного `save_work_log` разреши возвращённый WorkLog ID через `search_work`
+в canonical typed ref. Вызови `save_my_checkpoint` с той же owner+target,
+baseline expectedVersion, одной фразой nextStep и resources:[WorkLog ref].
+Остальные поля оставь null, если отдельного полезного контекста нет.
 
-### <HH:MM> — <короткое действие>
-- <проверяемый результат>
-- <ссылка на owning artifact или проверку>
+Один логический запрос имеет стабильные ключи двух операций: сохранённый ключ
+WorkLog и связанный ключ checkpoint, например `<operation-id>:continue`.
+Не генерируй новый ключ/UUID блока при retry после сетевой ошибки. Повторяй
+исходный payload; изменения формулировки являются новой согласованной операцией.
+При новом focus generation или 409 не подставляй свежую version автоматически.
+Соседний разговор и другой автор не являются разрешением менять их текст.
 
-## Связанные логи
-- <ссылка на лог соседнего контейнера, только если он реально затронут>
+Запись WorkLog и checkpoint — отдельные операции. Если одна удалась, а другая
+нет, сообщи частичный результат и безопасно повтори только недостающую операцию.
+Не сбрасывай фокус и не меняй guidance/принципы при закрытии дня. В общую сводку
+не попадают личные инструкции, обстоятельства и принципы из briefing.
+Запрос только прочитать период или подготовить черновик в чате ничего не записывает.
 
-## Открыто
-- <фактический gate или blocker>
+## 7. Сводка за неделю или другой период
 
-## Итог дня
-<одно предложение>
+Разреши выбранные проекты/Logs через ту же live navigation. Запроси только
+WorkLogs через `work_log` action=list (projectId, from, to, status?, limit?, cursor?)
+по `workDate` в нужной timezone и их явно заданному статусу. При
+отсутствии указания можно включить draft, но отличать предварительный результат
+от final. Не отбирай период по updatedAt или названию записи.
 
-🎯 **КВЦ дня достигнута:** `<одно короткое утверждение>`
-````
+Сначала прочитай компактный перечень, затем тела релевантных записей. Следуй
+pagination; назови неполный охват, если часть данных недоступна. Не сканируй
+все проекты, Notes, Tasks и чужие результаты без запроса. Если нужны выполненные
+задачи за период, запроси их отдельно как Task evidence, а не смешивай сущности.
 
-Omit empty sections. At an ordinary checkpoint omit `Итог дня`, keep
-`status: draft`, and do not add KVC.
+Объедини результаты по смыслу, дай ссылки на исходные WorkLogs, не удваивай
+одно достижение из связанных межпроектных сводок. Чтение недельного итога не
+создаёт новую запись и не публикует её в Storytelling без отдельного поручения.
 
-## Prompt Resources
+## 8. Ответ после записи
 
-- Read [`references/mini-report-prompt.md`](references/mini-report-prompt.md)
-  for a terse checkpoint or requested mini-report.
-- Read [`references/daily-summary-prompt.md`](references/daily-summary-prompt.md)
-  only for an explicitly requested end-of-day narrative or KVC framing.
-
-Prompts are editable resources. Routing, one-task-per-date, metadata,
-provenance, compactness, cross-project separation, and no-local-log rules in
-this file remain authoritative.
+Сообщи кратко: проект, рабочая дата, draft/final, что записано и ссылка.
+Укажи несохранённый фрагмент/неизвестный маршрут, если он есть. При недоступности
+Team OS подготовленный текст остаётся в чате, не в локальном `log-summary.md`.
+Не утверждай, что уже выданные файлы/ответы удалены при архивировании записи.

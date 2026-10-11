@@ -67,7 +67,7 @@ knowledge_core/source_of_truth/docs
 
 ### `det-ecosystem-doc-architect`
 
-Версия: `0.2.0`
+Версия: `0.2.3`
 
 Назначение: post-implementation / post-release архитектура документации для артефактов экосистемы DET.
 
@@ -79,14 +79,10 @@ knowledge_core/source_of_truth/docs
 
 Версия: `0.1.0`
 
-Назначение: компактный дневной журнал завершённой работы в ClickUp List `logs`
-конкретного проекта, инструмента или инфраструктурного контура.
-
-Skill использует локальный маршрут проекта, создаёт одну task
-`Logs DD.MM.YYYY` на московскую рабочую дату, записывает форматированный
-Markdown, добавляет подтверждённую provenance участника и при реальном
-cross-project результате связывает отдельные локальные логи без копирования
-одного отчёта во все контейнеры.
+Назначение: дневной WorkLog в Team OS через primary Logs однозначно
+разрешённого проекта и короткий personal checkpoint. WorkDate/timezone явные;
+чужие blocks не затираются, повтор после частичного сбоя продолжает только
+недостающую часть. Тип/маршрут/ACL читаются из Core, Task completion не используется.
 
 Объяснение skills, назначение `log-summary`, установка и локальный профиль
 описаны в tutorial [«Codex skills и log-summary»](https://github.com/DETai-org/onboarding/issues/33).
@@ -135,13 +131,13 @@ cross-project результате связывает отдельные лок�
 
 Версия: `0.1.0`
 
-Назначение: публикация новых версий документов из ClickUp workflow
+Назначение: публикация новых версий документов из редакционного Task/Note Team OS
 `Новые версии документов` обратно в канонический репозиторий
 `Knowledge_substrate` с читаемым Git diff.
 
 Используйте этот skill, когда:
 
-- задача документа находится в статусе `READY FOR PUBLICATION`;
+- Task находится в workflow `READY FOR PUBLICATION`, либо публикация Note явно согласована; Note не получает Task status;
 - нужно перенести подготовленный Markdown обратно в канонический источник;
 - важно сохранить reviewable diff вместо полного переформатирования файла;
 - требуется пройти цикл `dry-run -> preview -> diff gate -> apply -> PR`.
@@ -168,26 +164,26 @@ C:\Users\PC\.codex\skills\<skill-name>
 
 После установки или обновления перезапустите Codex, чтобы новые или изменённые skills появились в списке доступных навыков.
 
-## ClickUp Prompts
+## Prompts и карточки Team OS
 
-Операционные prompts для установки и обновления командных Codex skills хранятся в ClickUp:
+Операционные prompts для установки и обновления командных Codex skills хранятся как Notes в Team OS:
 
-https://app.clickup.com/90152202658/v/li/901523014418
+https://team.detai-x.com/task-center/lists/5c5ee31f-a307-50e9-8cc1-b333663869a0
 
-Текущие prompt-задачи:
+Текущие prompt-заметки:
 
-- Установка командных Codex skills: https://app.clickup.com/t/86c9gt4zp
-- Установка командных Codex skills с объяснением: https://app.clickup.com/t/86c9gt85g
-- Обновление командных Codex skills: https://app.clickup.com/t/86c9gt50x
-- Создание локального профиля участника DETai для Codex: https://app.clickup.com/t/86cb5ccf7
+- Установка командных Codex skills: https://team.detai-x.com/notes/1396e87f-b8a9-5fe6-8d9f-d77bd723fec8
+- Установка командных Codex skills с объяснением: https://team.detai-x.com/notes/1bdd70ae-8473-56a9-857f-4815413f3944
+- Обновление командных Codex skills: https://team.detai-x.com/notes/e4c090f6-2547-55ed-8e71-2a99133da960
+- Создание локального профиля участника DETai для Codex: https://team.detai-x.com/notes/6944cb26-9078-514d-a4dd-6b982a7288f0
 
 Командные карточки skills и их связи с исходниками:
 
-https://app.clickup.com/90152202658/v/li/901525124627
+https://team.detai-x.com/task-center/lists/4de5bc43-0250-57d3-aa83-93ab38b449b7
 
 История проектирования и сопровождения onboarding:
 
-https://app.clickup.com/90152202658/v/li/901525128363
+https://team.detai-x.com/task-center/lists/de775f74-1778-54e0-ae09-b49807a1e6f6
 
 Каноническая модель onboarding:
 
@@ -195,7 +191,7 @@ https://detai-org.github.io/Knowledge_substrate/ru/onboarding/
 
 Отдельный журнал прохождения onboarding новыми участниками:
 
-https://app.clickup.com/90152202658/v/li/901525126396
+https://team.detai-x.com/task-center/lists/526b6285-289e-5eb5-8c26-26ee57300edd
 
 ## Заметки По Поддержке
 

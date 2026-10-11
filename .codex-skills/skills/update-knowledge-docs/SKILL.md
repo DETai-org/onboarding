@@ -1,6 +1,6 @@
 ---
 name: update-knowledge-docs
-description: Publish edited Knowledge Substrate Markdown documents from the ClickUp "Новые версии документов" workflow back into the canonical Knowledge_substrate repository. Use when Codex needs to take a ClickUp task with status READY FOR PUBLICATION, prepare or verify raw Markdown, preserve reviewable Git diffs, run dry-run/apply publication checks, and create a PR-ready document update.
+description: Публикует согласованные редакционные изменения из Task/Note Team OS в канонический репозиторий Knowledge_substrate. Используй для подготовки raw Markdown, проверки готовности к публикации, dry-run/apply и reviewable Git PR с сохранением форматирования.
 ---
 
 # Update Knowledge Docs
@@ -8,7 +8,7 @@ description: Publish edited Knowledge Substrate Markdown documents from the Clic
 Use this skill for the reverse publication flow:
 
 ```text
-ClickUp READY FOR PUBLICATION -> raw Markdown source -> Knowledge Substrate Markdown -> Git branch / PR
+Team OS Task/Note -> согласованный raw Markdown -> Knowledge Substrate Markdown -> Git branch / PR
 ```
 
 The goal is not only to publish text, but to keep the GitHub diff reviewable.
@@ -18,10 +18,12 @@ metadata changes, not a whole-document formatting rewrite.
 ## Core Rules
 
 - Treat Knowledge Substrate as the canonical Markdown source.
-- Treat ClickUp as editorial workflow/status context, not as the only reliable
-  raw Markdown store.
-- Do not publish ClickUp connector `description` directly when it has been
-  normalized to plain text.
+- Редакционный контекст хранится в Team OS. Разреши Team OS URL/UUID через
+  resolve_resource и прочитай исходный Markdown и version канонической Task/Note.
+  Тип и проект подтверждает Core; новый источник не требует ClickUp provenance.
+- Используй исходный descriptionMd/bodyMd, а не визуальный plain-text пересказ.
+  Если MCP требует reconnect или доступ закрыт, сообщи о недостающем подключении;
+  не возвращайся в ClickUp, не угадывай UUID и не обходи Core через БД.
 - Start publication sources from the current canonical Markdown or generated
   baseline Markdown, then apply the ready task's editorial changes.
 - Preserve existing Markdown formatting unless formatting normalization is an
@@ -32,8 +34,9 @@ metadata changes, not a whole-document formatting rewrite.
 
 Before applying a publication, gather:
 
-1. ClickUp task id or URL for the ready task.
-2. Ready task status, which must be `ready for publication`.
+1. Канонический UUID/URL Task или Note Team OS и текущая version.
+2. Для Task — workflow готовности к публикации; для Note — явное согласование
+   пользователя. Не добавляй Note статусы выполнения Task.
 3. Matching baseline task or current canonical Markdown file.
 4. Raw Markdown publication source.
 5. Canonical Knowledge Substrate file path.
@@ -47,15 +50,19 @@ references/raw-markdown-source-checklist.md
 For the full end-to-end procedure, read:
 
 ```text
-references/clickup-doc-publication-procedure.md
+references/team-os-doc-publication-procedure.md
 ```
 
 ## Script
 
+Имя publish-clickup-doc-version.ps1 сохранено для совместимости старых callers.
+Скрипт обрабатывает локальный Markdown и не обращается к ClickUp; RecordId —
+канонический UUID Team OS.
+
 Use the bundled script:
 
 ```powershell
-.\scripts\publish-clickup-doc-version.ps1 <raw markdown source> -TaskId <ClickUp task id>
+.\scripts\publish-clickup-doc-version.ps1 <raw markdown source> -RecordId <Team OS record UUID>
 ```
 
 The script:
@@ -64,27 +71,28 @@ The script:
 - sets `descriptive.status: active` in preview/apply output;
 - resolves the canonical Markdown file from the MkDocs URL;
 - checks `title` and `descriptive.id` against the target file;
-- writes a preview into `generated/clickup-publication-preview`;
+- writes a preview into `generated/team-os-publication-preview`;
 - reports `diff_gate`;
 - blocks large apply diffs unless `-AllowLargeDiff` is explicit.
 
 Apply only after reviewing dry-run output:
 
 ```powershell
-.\scripts\publish-clickup-doc-version.ps1 <raw markdown source> -TaskId <ClickUp task id> -Apply
+.\scripts\publish-clickup-doc-version.ps1 <raw markdown source> -RecordId <Team OS record UUID> -Apply
 ```
 
 Use this only for intentional major rewrites:
 
 ```powershell
-.\scripts\publish-clickup-doc-version.ps1 <raw markdown source> -TaskId <ClickUp task id> -Apply -AllowLargeDiff
+.\scripts\publish-clickup-doc-version.ps1 <raw markdown source> -RecordId <Team OS record UUID> -Apply -AllowLargeDiff
 ```
 
 ## Manual Checks
 
 Before `-Apply`, verify:
 
-- ClickUp task status is `ready for publication`.
+- Готовность источника Team OS подтверждена по текущей version: workflow Task
+  или явное согласование Note.
 - Task title matches front matter `title`.
 - `descriptive.id` matches the existing canonical target file.
 - `classification.scope`, `classification.function`, and title changes are
