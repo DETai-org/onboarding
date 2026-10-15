@@ -5,7 +5,7 @@
 ## Desktop Commander
 
 - **[start-desktop-commander.ps1](start-desktop-commander.ps1)** — запуск Remote Desktop Commander на Windows с автоматическим выбором маршрута: через включённый локальный системный HTTP-прокси Windows (например, Happ) либо напрямую.
-- [Пошаговый onboarding-туториал](https://github.com/DETai-org/onboarding/issues?q=Desktop+Commander) — установка, авторизация, проверка и работа через Happ.
+- [Пошаговый onboarding-туториал](https://github.com/DETai-org/onboarding/issues/35) — установка, авторизация, проверка и работа через Happ.
 - [Настройка VPN Happ + Magnum](https://github.com/DETai-org/onboarding/issues/12).
 
 Для использования скрипта необходимы Windows PowerShell, Node.js 24.5+ и глобально установленный пакет `@wonderwhy-er/desktop-commander`:
