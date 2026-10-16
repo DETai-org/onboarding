@@ -11,6 +11,9 @@ $versionText = (& $node --version).Trim().TrimStart('v')
 if ($LASTEXITCODE -ne 0 -or [version]$versionText -lt [version]'24.5.0') {
     throw 'This launcher is tested with Node 24.15; Node 24.5+ is required.'
 }
+# npm.cmd may emit UTF-8 paths even when Windows PowerShell expects a legacy code page.
+# Decode the subprocess output as UTF-8 (e.g. C:\Users\Антон) without changing system settings.
+[Console]::OutputEncoding = New-Object System.Text.UTF8Encoding($false)
 $globalRoot = (& npm.cmd root -g).Trim()
 if ($LASTEXITCODE -ne 0 -or !$globalRoot) { throw 'Cannot locate global npm packages.' }
 $packageDir = Join-Path $globalRoot '@wonderwhy-er\desktop-commander'
