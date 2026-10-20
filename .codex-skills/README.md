@@ -39,8 +39,8 @@
 
 Три Skills существующего плагина ChatGPT сгруппированы в
 [`.codex-skills/MCP-Skills/Team-OS`](<MCP-Skills/Team-OS/README.md>): `start-work`,
-`log-summary` и `update-orientations`. В README набора находятся установка
-через GitHub и Plugin Creator и готовый промпт для личного аккаунта участника.
+`log-summary` и `update-orientations`. В README набора находятся инструкция
+установки через GitHub и Plugin Creator и ссылка на готовый промпт в Team OS.
 `Team-OS/` — группа, которую не устанавливают как один локальный Skill.
 Запись набора находится отдельно в `plugin_skill_bundles` manifest;
 остальные локальные skills по-прежнему перечислены в `skills`.
@@ -173,7 +173,7 @@ https://team.detai-x.com/task-center/lists/5c5ee31f-a307-50e9-8cc1-b333663869a0
 - Установка командных Codex skills: https://team.detai-x.com/notes/1396e87f-b8a9-5fe6-8d9f-d77bd723fec8
 - Установка командных Codex skills с объяснением: https://team.detai-x.com/notes/1bdd70ae-8473-56a9-857f-4815413f3944
 - Обновление командных Codex skills: https://team.detai-x.com/notes/e4c090f6-2547-55ed-8e71-2a99133da960
-- Создание локального профиля участника DETai для Codex: https://team.detai-x.com/notes/6944cb26-9078-514d-a4dd-6b982a7288f0
+- Установка и обновление Skills плагина Team-OS: https://team.detai-x.com/notes/a6257580-a67a-489d-9ad4-03fcf21f25a3
 
 Командные карточки skills и их связи с исходниками:
 
