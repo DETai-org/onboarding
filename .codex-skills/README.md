@@ -11,7 +11,7 @@
 .codex-skills/
   manifest.json
   README.md
-  MCP Skills/
+  MCP-Skills/
     Team-OS/
       README.md
       start-work/
@@ -28,7 +28,7 @@
 
 - `manifest.json` — индекс shared skills и групп навыков плагинов: версии, пути, даты обновления и краткие описания.
 - `skills/` — отдельные навыки для индивидуальной установки в `$CODEX_HOME/skills`.
-- `MCP Skills/` — наборы навыков MCP-плагинов, сгруппированные по имени плагина.
+- `MCP-Skills/` — наборы навыков MCP-плагинов, сгруппированные по имени плагина.
 - `README.md` — описание назначения и текущего состава командного реестра skills.
 
 ## Текущие Skills
@@ -38,7 +38,7 @@
 Версия набора: `1.3.1`.
 
 Три Skills существующего плагина ChatGPT сгруппированы в
-[`.codex-skills/MCP Skills/Team-OS`](<MCP Skills/Team-OS/README.md>): `start-work`,
+[`.codex-skills/MCP-Skills/Team-OS`](<MCP-Skills/Team-OS/README.md>): `start-work`,
 `log-summary` и `update-orientations`. В README набора находятся установка
 через GitHub и Plugin Creator и готовый промпт для личного аккаунта участника.
 `Team-OS/` — группа, которую не устанавливают как один локальный Skill.
