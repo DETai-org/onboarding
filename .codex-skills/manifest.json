@@ -2,7 +2,7 @@
   "plugin_skill_bundles": {
     "Team-OS": {
       "version": "1.3.1",
-      "path": "skills/Team-OS",
+      "path": "MCP Skills/Team-OS",
       "updated_at": "2026-10-21",
       "description": "Три Skills для существующего плагина Team-OS в личном аккаунте ChatGPT; установка и обновление через GitHub и Plugin Creator.",
       "skills": ["start-work", "log-summary", "update-orientations"],
@@ -30,12 +30,6 @@
       "path": "skills/knowledge-substrate-navigator",
       "updated_at": "2026-04-29",
       "description": "Read-only navigator for mapping Knowledge Substrate public URLs to local UTF-8 Markdown sources."
-    },
-    "log-summary": {
-      "version": "0.1.0",
-      "path": "skills/log-summary",
-      "updated_at": "2026-08-14",
-      "description": "Create, update, and close compact project-local daily log-summary tasks in ClickUp with portable metadata, confirmed team provenance, and linked cross-project routing."
     },
     "playwright": {
       "version": "0.1.0",

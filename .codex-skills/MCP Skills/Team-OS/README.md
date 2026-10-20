@@ -29,7 +29,7 @@
 ```text
 Обнови мой существующий плагин Team-OS: добавь в него три Skills из общего
 репозитория https://github.com/DETai-org/onboarding, ветка main,
-папка .codex-skills/skills/Team-OS.
+папка ".codex-skills/MCP Skills/Team-OS".
 
 Через подключённый GitHub прочитай README этой папки, запись
 plugin_skill_bundles.Team-OS в .codex-skills/manifest.json и исходные файлы:
@@ -81,7 +81,7 @@ Skills, сохранность App ID и текущую версию. Дай с�
 В `team-os` продолжается разработка процедур; здесь хранится согласованный
 снимок для установки участниками. При следующем выпуске обновите эти пять
 файлов, версию набора в этом README и запись `plugin_skill_bundles.Team-OS` в
-[`manifest.json`](../../manifest.json) через Git PR.
+[`manifest.json`](../../manifest.json) в том же Git-коммите.
 
 Изменения в `main` дают участникам общий источник следующего обновления,
 но не загружаются автоматически в их личные плагины. Для обновления

@@ -1,6 +1,7 @@
-# Командные Codex Skills DET
+# Командные Skills DET
 
-Эта папка хранит общие Codex skills для команды DET / DETai.
+Эта папка хранит общие Skills команды DET / DETai: отдельные навыки для
+индивидуальной установки в Codex и наборы навыков MCP-плагинов ChatGPT.
 
 Копия в репозитории является версионированным источником командных skills. Каждый участник может установить или обновить эти skills в локальную папку Codex, чтобы Codex на разных машинах работал с одинаковыми ролевыми моделями, рабочими процессами и каноническими маршрутами к базе знаний.
 
@@ -10,25 +11,25 @@
 .codex-skills/
   manifest.json
   README.md
-  skills/
+  MCP Skills/
     Team-OS/
       README.md
       start-work/
       log-summary/
       update-orientations/
+  skills/
     autofunnel-retrospective-analyzer/
     det-ecosystem-doc-architect/
     knowledge-substrate-navigator/
-    log-summary/
     playwright/
     update-knowledge-docs/
     windows-mojibake-first-aid/
 ```
 
 - `manifest.json` — индекс shared skills и групп навыков плагинов: версии, пути, даты обновления и краткие описания.
-- `skills/` — папки skills, которые можно копировать в `$CODEX_HOME/skills`.
+- `skills/` — отдельные навыки для индивидуальной установки в `$CODEX_HOME/skills`.
+- `MCP Skills/` — наборы навыков MCP-плагинов, сгруппированные по имени плагина.
 - `README.md` — описание назначения и текущего состава командного реестра skills.
-- `codex-local-plugin-inventory.md` — снимок локальных Codex plugins в технической папке `.codex/plugins/cache`.
 
 ## Текущие Skills
 
@@ -37,7 +38,7 @@
 Версия набора: `1.3.1`.
 
 Три Skills существующего плагина ChatGPT сгруппированы в
-[`.codex-skills/skills/Team-OS`](skills/Team-OS/README.md): `start-work`,
+[`.codex-skills/MCP Skills/Team-OS`](<MCP Skills/Team-OS/README.md>): `start-work`,
 `log-summary` и `update-orientations`. В README набора находятся установка
 через GitHub и Plugin Creator и готовый промпт для личного аккаунта участника.
 `Team-OS/` — группа, которую не устанавливают как один локальный Skill.
@@ -91,26 +92,6 @@ knowledge_core/source_of_truth/docs
 Используйте этот skill после того, как проект, фича, релиз или версия дошли до осмысленного завершённого состояния и требуют документационной архитектуры: какие артефакты нужны, какую функцию документа они выполняют и где должны храниться.
 
 Этот skill не должен использоваться для создания onboarding tutorial issues, выбора идеи, планирования Epic Issue, создания Work Package, написания кода или выполнения release/versioning-процесса, если пользователь явно не просит именно документационную архитектуру.
-
-### `log-summary`
-
-Версия: `0.1.0`
-
-Назначение: дневной WorkLog в Team OS через primary Logs однозначно
-разрешённого проекта и короткий personal checkpoint. WorkDate/timezone явные;
-чужие blocks не затираются, повтор после частичного сбоя продолжает только
-недостающую часть. Тип/маршрут/ACL читаются из Core, Task completion не используется.
-
-Объяснение skills, назначение `log-summary`, установка и локальный профиль
-описаны в tutorial [«Codex skills и log-summary»](https://github.com/DETai-org/onboarding/issues/33).
-Настройка нового локального проекта и его `AGENTS.md` продолжается в tutorial
-[«Подключить log-summary к рабочему проекту»](https://github.com/DETai-org/onboarding/issues/32).
-
-Путь к skill:
-
-```text
-.codex-skills/skills/log-summary
-```
 
 ### `playwright`
 
@@ -216,4 +197,3 @@ https://team.detai-x.com/task-center/lists/526b6285-289e-5eb5-8c26-26ee57300edd
 - Предпочитайте ролевые skills одному большому универсальному skill.
 - Используйте `knowledge-substrate-navigator` как общую инфраструктурную способность для чтения канонических страниц Knowledge Substrate по браузерным ссылкам.
 - При изменении shared skills синхронизируйте копию в репозитории и локальную копию в `$CODEX_HOME/skills`.
-- Если локальная машина использует новые Codex plugins или cached plugin copies выглядят устаревшими, обновляйте `codex-local-plugin-inventory.md` вместе с этим README.
