@@ -11,6 +11,11 @@
   manifest.json
   README.md
   skills/
+    Team-OS/
+      README.md
+      start-work/
+      log-summary/
+      update-orientations/
     autofunnel-retrospective-analyzer/
     det-ecosystem-doc-architect/
     knowledge-substrate-navigator/
@@ -20,12 +25,24 @@
     windows-mojibake-first-aid/
 ```
 
-- `manifest.json` — индекс shared skills: версии, пути, даты обновления и краткие описания.
+- `manifest.json` — индекс shared skills и групп навыков плагинов: версии, пути, даты обновления и краткие описания.
 - `skills/` — папки skills, которые можно копировать в `$CODEX_HOME/skills`.
 - `README.md` — описание назначения и текущего состава командного реестра skills.
 - `codex-local-plugin-inventory.md` — снимок локальных Codex plugins в технической папке `.codex/plugins/cache`.
 
 ## Текущие Skills
+
+### Набор плагина `Team-OS`
+
+Версия набора: `1.3.1`.
+
+Три Skills существующего плагина ChatGPT сгруппированы в
+[`.codex-skills/skills/Team-OS`](skills/Team-OS/README.md): `start-work`,
+`log-summary` и `update-orientations`. В README набора находятся установка
+через GitHub и Plugin Creator и готовый промпт для личного аккаунта участника.
+`Team-OS/` — группа, которую не устанавливают как один локальный Skill.
+Запись набора находится отдельно в `plugin_skill_bundles` manifest;
+остальные локальные skills по-прежнему перечислены в `skills`.
 
 ### `autofunnel-retrospective-analyzer`
 

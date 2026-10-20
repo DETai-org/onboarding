@@ -1,4 +1,16 @@
 {
+  "plugin_skill_bundles": {
+    "Team-OS": {
+      "version": "1.3.1",
+      "path": "skills/Team-OS",
+      "updated_at": "2026-10-21",
+      "description": "Три Skills для существующего плагина Team-OS в личном аккаунте ChatGPT; установка и обновление через GitHub и Plugin Creator.",
+      "skills": ["start-work", "log-summary", "update-orientations"],
+      "source_repository": "https://github.com/DETai-org/team-os",
+      "source_commit": "9d415ff63fdebb3692e375f23b6dd5131db12f1b",
+      "source_path": "plugins/team-os/skills"
+    }
+  },
   "skills": {
     "autofunnel-retrospective-analyzer": {
       "version": "3.5.1",
