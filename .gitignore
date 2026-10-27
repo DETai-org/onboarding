@@ -14,3 +14,6 @@ sync-units.log
 bot/config.json
 
 !**/.env.example
+
+# Password notebooks must never be published
+**/Passwords.md
