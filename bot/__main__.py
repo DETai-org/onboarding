@@ -28,7 +28,8 @@ async def run() -> None:
     try:
         identity = await bot.get_me()
         if (identity.username or "").lower() != EXPECTED_USERNAME:
-            raise RuntimeError("Telegram getMe identity mismatch; refusing to poll another bot")
+            logging.error("Telegram getMe identity mismatch; refusing to poll another bot")
+            raise SystemExit(78)  # permanent configuration error: no restart loop
 
         dp = Dispatcher()
 
