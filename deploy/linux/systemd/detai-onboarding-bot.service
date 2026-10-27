@@ -2,18 +2,22 @@
 Description=DETai onboarding welcome
 After=network-online.target ecosystem-api.service
 Wants=network-online.target
+StartLimitIntervalSec=120
+StartLimitBurst=5
 
 [Service]
 Type=simple
-User=psy-ru
-WorkingDirectory=/home/psy-ru/DETai-org/onboarding
-Environment=PYTHONPATH=/home/psy-ru/DETai-org/onboarding
-EnvironmentFile=/home/psy-ru/DETai-org/server-operations/detai-onboarding.env
-ExecStart=/usr/bin/python3 -m bot
+User=detai-onboarding
+WorkingDirectory=/srv/nexus/DETai-org/onboarding
+Environment=PYTHONPATH=/srv/nexus/DETai-org/onboarding
+EnvironmentFile=/etc/detai-onboarding/bot.env
+ExecStart=/srv/nexus/DETai-org/onboarding/.venv/bin/python -m bot
 Restart=always
 RestartSec=5
 RestartPreventExitStatus=78
-ProtectHome=no
+ProtectHome=true
+ProtectSystem=strict
+NoNewPrivileges=true
 PrivateTmp=true
 
 [Install]

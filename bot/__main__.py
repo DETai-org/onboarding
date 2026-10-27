@@ -6,6 +6,7 @@ from pathlib import Path
 
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
+from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
 from aiogram.types import FSInputFile, Message
@@ -24,7 +25,7 @@ async def run() -> None:
     if not token or not os.getenv("ECOSYSTEM_NOTIFICATIONS_TOKEN") or not os.getenv("ECOSYSTEM_NOTIFICATIONS_URL"):
         logging.error("Bot token and sender-scoped Runtime credentials are required")
         raise SystemExit(78)
-    bot = Bot(token=token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+    bot = Bot(token=token, session=AiohttpSession(proxy=os.getenv("TELEGRAM_PROXY_URL") or None), default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     try:
         identity = await bot.get_me()
         if (identity.username or "").lower() != EXPECTED_USERNAME:

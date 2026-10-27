@@ -6,4 +6,4 @@ Run using `python3 -m bot` from repository root, with `DETAI_ONBOARDING_BOT_TOKE
 
 The Runtime [#72](https://github.com/DETai-org/ecosystem-runtime/pull/72) first-start API stores contacts/idempotent `bot_started`, and [Arhivarius #14](https://github.com/DETai-org/arhivarius/pull/14) reports results. A `/start` is not a news subscription. This service has no separate DB, onboarding application form or implicit membership grants. Do not enable without a verified Telegram bot token and correct Runtime sender identity.
 
-Optional welcome illustration: `bot/assets/welcome.png`; the default text with buttons works without an image.
+The owner-selected welcome illustration is versioned at `bot/assets/welcome.png`; the same localized text and buttons remain available if photo delivery fails. On Nexus the dedicated `detai-onboarding` user runs `/srv/nexus/DETai-org/onboarding/.venv/bin/python`, reading `/etc/detai-onboarding/bot.env` outside Git. These paths supersede the old server-operations example above.
