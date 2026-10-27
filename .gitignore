@@ -2,3 +2,18 @@
 __pycache__/
 *.pyc
 sync-units.log
+
+# This repository is PUBLIC. Local tokens and server credentials must NEVER
+# become Git history. Only intentionally empty .env.example templates are safe.
+.env
+**/.env
+**/.env.*
+*.env
+*.key
+*.secret
+bot/config.json
+
+!**/.env.example
+
+# Password notebooks must never be published
+**/Passwords.md

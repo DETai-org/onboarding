@@ -1,0 +1,24 @@
+[Unit]
+Description=DETai onboarding welcome
+After=network-online.target ecosystem-api.service
+Wants=network-online.target
+StartLimitIntervalSec=120
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=detai-onboarding
+WorkingDirectory=/srv/nexus/DETai-org/onboarding
+Environment=PYTHONPATH=/srv/nexus/DETai-org/onboarding
+EnvironmentFile=/etc/detai-onboarding/bot.env
+ExecStart=/srv/nexus/DETai-org/onboarding/.venv/bin/python -m bot
+Restart=always
+RestartSec=5
+RestartPreventExitStatus=78
+ProtectHome=true
+ProtectSystem=strict
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
